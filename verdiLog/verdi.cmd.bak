@@ -1,0 +1,13 @@
+verdiSetActWin -dock widgetDock_<Message>
+verdiFindBar -show -widget <Message>
+simSetSimulator "-vcssv" -exec "sim_build/simv" -args \
+           "+define+COCOTB_SIM=1 -full64"
+debImport "-dbdir" "sim_build/simv.daidir/"
+debLoadSimResult /home/hsh/cocotb/cmss_top/dump.fsdb
+wvCreateWindow
+verdiWindowResize -win $_Verdi_1 "1080" "23" "2560" "1369"
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+verdiWindowResize -win $_Verdi_1 "1080" "23" "2560" "1369"
+verdiWindowResize -win $_Verdi_1 "1517" "189" "1080" "1897"
+verdiWindowResize -win $_Verdi_1 "1080" "23" "2560" "1369"
+debExit

@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1746542437.471949099, "rt":2.07, "ut":1.96, "st":0.23}}
+{"vcselab":{"timestamp_begin":1746542439.616011970, "rt":0.33, "ut":0.18, "st":0.10}}
+{"link":{"timestamp_begin":1746542439.994879869, "rt":0.19, "ut":0.09, "st":0.10}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1746542436.915116046}
+{"VCS_COMP_START_TIME": 1746542436.915116046}
+{"VCS_COMP_END_TIME": 1746542440.304739728}
+{"VCS_USER_OPTIONS": "-top CMSS_TOP_WRAPPER -debug_access+r+w-memcbk -debug_region+cell +vpi -P pli.tab -sverilog -timescale=1ns/1ps -full64 -debug -load /home/hsh/.local/lib/python3.10/site-packages/cocotb/libs/libcocotbvpi_vcs.so -kdb -debug_access+all -debug_access+struct -debug_region+cell +vcs+fsdbon -f /home/hsh/cocotb//design/filelist.f"}
+{"vcs1": {"peak_mem": 466028}}
+{"vcselab": {"peak_mem": 184328}}

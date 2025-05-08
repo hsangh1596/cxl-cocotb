@@ -1,0 +1,603 @@
+verdiSetActWin -dock widgetDock_<Message>
+verdiFindBar -show -widget <Message>
+verdiWindowResize -win $_Verdi_1 "1564" "97" "2160" "1824"
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+simSetSimulator "-vcssv" -exec \
+           "/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/sim_build/simv" \
+           -args
+debImport "-dbdir" \
+          "/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/sim_build/simv.daidir"
+wvCreateWindow
+wvSetPosition -win $_nWave2 {("G1" 0)}
+wvOpenFile -win $_nWave2 \
+           {/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/dump.fsdb}
+wvGetSignalOpen -win $_nWave2
+wvGetSignalSetScope -win $_nWave2 "/AXI4_PKG"
+wvGetSignalSetScope -win $_nWave2 "/CMSS_TOP_WRAPPER"
+wvGetSignalSetScope -win $_nWave2 "/CMSS_TOP_WRAPPER/u_cmss"
+wvGetSignalSetScope -win $_nWave2 "/CMSS_TOP_WRAPPER"
+wvSetPosition -win $_nWave2 {("G1" 11)}
+wvSetPosition -win $_nWave2 {("G1" 11)}
+wvAddSignal -win $_nWave2 -clear
+wvAddSignal -win $_nWave2 -group {"G1" \
+{/CMSS_TOP_WRAPPER/cache_paddr\[15:0\]} \
+{/CMSS_TOP_WRAPPER/cache_penable} \
+{/CMSS_TOP_WRAPPER/cache_prdata\[31:0\]} \
+{/CMSS_TOP_WRAPPER/cache_pready} \
+{/CMSS_TOP_WRAPPER/cache_psel} \
+{/CMSS_TOP_WRAPPER/cache_pslverr} \
+{/CMSS_TOP_WRAPPER/cache_pwdata\[31:0\]} \
+{/CMSS_TOP_WRAPPER/cache_pwrite} \
+{/CMSS_TOP_WRAPPER/pclk} \
+{/CMSS_TOP_WRAPPER/preset} \
+{/CMSS_TOP_WRAPPER/preset_n} \
+}
+wvAddSignal -win $_nWave2 -group {"G2" \
+}
+wvSelectSignal -win $_nWave2 {( "G1" 1 2 3 4 5 6 7 8 9 10 11 )} 
+wvSetPosition -win $_nWave2 {("G1" 11)}
+wvGetSignalClose -win $_nWave2
+wvZoom -win $_nWave2 0.000000 185993.032422
+wvZoom -win $_nWave2 0.000000 60848.199004
+wvSelectSignal -win $_nWave2 {( "G1" 5 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 3 5 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 2 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 3 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 2 )} 
+wvSetPosition -win $_nWave2 {("G1" 2)}
+wvSetPosition -win $_nWave2 {("G1" 11)}
+srcTraceConnectivity "CMSS_TOP_WRAPPER.cache_penable" -win $_nTrace1
+wvSetPosition -win $_nWave2 {("G2" 0)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "cache_penable" -line 326 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "cache_penable" -line 326 -pos 1 -win $_nTrace1
+srcAction -pos 325 7 10 -win $_nTrace1 -name "cache_penable" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "cache_penable" -line 326 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "cache_penable" -line 326 -pos 1 -win $_nTrace1
+srcAction -pos 325 7 11 -win $_nTrace1 -name "cache_penable" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "cache_penable" -line 326 -pos 1 -win $_nTrace1
+srcAction -pos 325 7 12 -win $_nTrace1 -name "cache_penable" -ctrlKey off
+verdiDockWidgetSetCurTab -dock widgetDock_<Message>
+verdiSetActWin -dock widgetDock_<Message>
+verdiDockWidgetSetCurTab -dock windowDock_nWave_2
+verdiSetActWin -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "cache_penable" -line 326 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+verdiFindBar -show -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "cache_penable" -next -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "cache_penable" -next -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "cache_penable" -next -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "cache_penable" -next -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "cache_penable" -next -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "cache_penable" -next -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "cache_penable" -next -widget MTB_SOURCE_TAB_1
+wvSetCursor -win $_nWave2 18742.118712 -snap {("G3" 0)}
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 9 )} 
+wvZoomAll -win $_nWave2
+wvDisplayGridCount -win $_nWave2 -off
+wvCloseGetStreamsDialog -win $_nWave2
+wvAttrOrderConfigDlg -win $_nWave2 -close
+wvCloseDetailsViewDlg -win $_nWave2
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+wvZoomAll -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 7 )} 
+wvZoomAll -win $_nWave2
+wvZoomAll -win $_nWave2
+wvZoomAll -win $_nWave2
+wvZoom -win $_nWave2 0.000000 2038247.760610
+wvZoom -win $_nWave2 0.000000 123123.818075
+wvZoom -win $_nWave2 0.000000 59720.942858
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G3" 0)}
+wvGetSignalOpen -win $_nWave2
+wvRestoreSignal -win $_nWave2 \
+           "/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/dumps/core_axi.rc" \
+           -overWriteAutoAlias on -appendSignals on
+wvSelectSignal -win $_nWave2 {( "G1" 22 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 1 )} 
+wvSetPosition -win $_nWave2 {("G1" 1)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 43)}
+wvSelectSignal -win $_nWave2 {( "G1" 1 )} 
+wvSelectGroup -win $_nWave2 {G1}
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G2" 0)}
+wvSelectGroup -win $_nWave2 {G2}
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G3" 0)}
+wvSelectGroup -win $_nWave2 {G3}
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 0)}
+wvGetSignalOpen -win $_nWave2
+wvGetSignalSetScope -win $_nWave2 "/CPI_PKG"
+wvGetSignalSetScope -win $_nWave2 "/CMSS_TOP_WRAPPER/u_cmss/u_cache/core_w_if"
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/mem_wr_m2c_if"
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/metadata_h2c_if"
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/metadata_rd_if"
+wvGetSignalSetSignalFilter -win $_nWave2 "*over*"
+wvSetPosition -win $_nWave2 {("G1" 0)}
+wvSetPosition -win $_nWave2 {("G1" 0)}
+wvAddSignal -win $_nWave2 -clear
+wvAddSignal -win $_nWave2 -group {"G1" \
+}
+wvSetPosition -win $_nWave2 {("G1" 0)}
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/metadata_rd_if/dst"
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/metadata_m2c_if"
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/u_metadata_buffer"
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/u_metadata_buffer/metadata_rd_if"
+wvGetSignalSetScope -win $_nWave2 \
+           "/CMSS_TOP_WRAPPER/u_cmss/u_cache/u_metadata_buffer/u_out_fifo"
+wvSetPosition -win $_nWave2 {("G1" 1)}
+wvSetPosition -win $_nWave2 {("G1" 1)}
+wvAddSignal -win $_nWave2 -clear
+wvAddSignal -win $_nWave2 -group {"G1" \
+{/CMSS_TOP_WRAPPER/u_cmss/u_cache/u_metadata_buffer/u_out_fifo/overflown} \
+}
+wvAddSignal -win $_nWave2 -group {"G2" \
+}
+wvSelectSignal -win $_nWave2 {( "G1" 1 )} 
+wvSetPosition -win $_nWave2 {("G1" 1)}
+wvGetSignalClose -win $_nWave2
+wvSetCursor -win $_nWave2 15536.240077 -snap {("G2" 0)}
+wvZoomAll -win $_nWave2
+wvZoomAll -win $_nWave2
+wvZoomAll -win $_nWave2
+wvZoomAll -win $_nWave2
+wvSetCursor -win $_nWave2 14570278.627461 -snap {("G1" 0)}
+wvSetCursor -win $_nWave2 14721939.520238 -snap {("G1" 1)}
+srcActiveTrace \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_metadata_buffer.u_out_fifo.overflown" \
+           -TraceByDConWave -TraceTime 4000 -TraceValue 0 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "overflown_n" -line 69 -pos 1 -win $_nTrace1
+srcAction -pos 68 5 4 -win $_nTrace1 -name "overflown_n" -ctrlKey off
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "overflown" -line 103 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "full_o" -line 103 -pos 1 -win $_nTrace1
+srcSelect -signal "wren_i" -line 103 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "wren_i" -line 103 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "full_o" -line 103 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "full_o" -line 103 -pos 1 -win $_nTrace1
+srcAction -pos 102 10 4 -win $_nTrace1 -name "full_o" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "full" -line 107 -pos 1 -win $_nTrace1
+srcAction -pos 106 7 2 -win $_nTrace1 -name "full" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "full_n" -line 65 -pos 1 -win $_nTrace1
+srcAction -pos 64 5 4 -win $_nTrace1 -name "full_n" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "wrptr_n\[DEPTH_LG2\]" -line 98 -pos 1 -win $_nTrace1
+srcSelect -signal "rdptr_n\[DEPTH_LG2\]" -line 98 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "wrptr_n\[DEPTH_LG2-1:0\]" -line 99 -pos 1 -partailSelPos 9 \
+          -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "wrptr_n\[DEPTH_LG2-1:0\]" -line 99 -pos 1 -win $_nTrace1
+srcSelect -signal "rdptr_n\[DEPTH_LG2-1:0\]" -line 99 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 6 )} 
+wvSetPosition -win $_nWave2 {("G1" 6)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 14)}
+wvUndo -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 7)}
+wvSetPosition -win $_nWave2 {("G1" 7)}
+wvSetPosition -win $_nWave2 {("G1" 6)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "wrptr_n\[DEPTH_LG2\]" -line 98 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rdptr_n\[DEPTH_LG2\]" -line 98 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rdptr_n\[DEPTH_LG2\]" -line 98 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rdptr_n\[DEPTH_LG2\]" -line 98 -pos 1 -win $_nTrace1
+srcAction -pos 97 10 1 -win $_nTrace1 -name "rdptr_n\[DEPTH_LG2\]" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rdptr" -line 85 -pos 1 -win $_nTrace1
+wvZoom -win $_nWave2 14483615.260160 15534408.588684
+verdiSetActWin -win $_nWave2
+srcBackwardHistory -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_metadata_buffer.u_out_fifo" -win \
+           $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_metadata_buffer.u_out_fifo" -win \
+           $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "wrptr_n\[DEPTH_LG2\]" -line 98 -pos 1 -win $_nTrace1
+srcAction -pos 97 6 1 -win $_nTrace1 -name "wrptr_n\[DEPTH_LG2\]" -ctrlKey off
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "wren_i" -line 74 -pos 1 -win $_nTrace1
+srcAction -pos 73 4 3 -win $_nTrace1 -name "wren_i" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "wr0_if.req" -line 49 -pos 1
+srcSelect -win $_nTrace1 -signal "wr1_if.req" -line 49 -pos 1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "wr0_if.data" -line 55 -pos 1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 10 )} 
+wvSetPosition -win $_nWave2 {("G1" 10)}
+wvExpandBus -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvUndo -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 11)}
+wvSetPosition -win $_nWave2 {("G2" 0)}
+wvSetPosition -win $_nWave2 {("G1" 10)}
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "wr1_if.req" -line 49 -pos 1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "wr1_if.req" -line 45 -pos 1
+srcBackwardHistory -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_metadata_buffer" -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_metadata_buffer.u_out_fifo" -win \
+           $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -range {81 81 6 7 1 1} -backward
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rden_i" -line 81 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rden_i" -line 81 -pos 1 -win $_nTrace1
+srcAction -pos 80 4 4 -win $_nTrace1 -name "rden_i" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "fifo_empty" -line 120 -pos 1 -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "metadata_rd_if.req" -line 120 -pos 1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "metadata_rd_if.req" -line 120 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "metadata_rd_if.req" -line 120 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "metadata_rd_if.req" -line 120 -pos 1
+srcAction -pos 119 12 4 -win $_nTrace1 -name "metadata_rd_if.req" -ctrlKey off
+srcNextTraced
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -range {101 105 1 1 1 1}
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvZoom -win $_nWave2 14663203.279249 15020635.744427
+verdiSetActWin -win $_nWave2
+wvZoom -win $_nWave2 14744258.207737 14870782.974172
+wvZoom -win $_nWave2 14762313.179931 14812559.187841
+srcDeselectAll -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "out_fifo_afull" -line 103 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_empty" -line 103 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_rdata.len" -line 104 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -word -line 104 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -word -line 110 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_rdata.len" -line 104 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_rdata.len" -line 104 -pos 1 -win $_nTrace1
+srcAction -pos 103 4 16 -win $_nTrace1 -name "slot_id_fifo_rdata.len" -ctrlKey \
+          off
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcBackwardHistory -win $_nTrace1
+srcHBSelect \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_no_timing_optimize.u_mem.rdata_timing_no_optimize" \
+           -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_rdata.len" -line 104 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_rdata.len" -line 104 -pos 1 -win $_nTrace1
+srcAction -pos 103 4 18 -win $_nTrace1 -name "slot_id_fifo_rdata.len" -ctrlKey \
+          off
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -partailSelPos 6 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -win $_nTrace1
+srcAction -pos 50 7 1 -win $_nTrace1 -name "mem\[addr_b\]" -ctrlKey off
+srcBackwardHistory -win $_nTrace1
+srcHBSelect \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_no_timing_optimize.u_mem" \
+           -win $_nTrace1
+srcHBSelect \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_no_timing_optimize.u_mem.rdata_timing_no_optimize" \
+           -win $_nTrace1
+wvSelectSignal -win $_nWave2 {( "G1" 18 )} 
+wvSetPosition -win $_nWave2 {("G1" 18)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 85)}
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 82 )} 
+wvScrollUp -win $_nWave2 30
+wvSelectSignal -win $_nWave2 {( "G1" 20 21 22 23 24 25 26 27 28 29 30 31 32 33 \
+           34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 \
+           56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 \
+           78 79 80 81 82 )} 
+wvCut -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 22)}
+srcDeselectAll -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "di_a" -line 43 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -win $_nTrace1
+wvSelectSignal -win $_nWave2 {( "G1" 23 )} 
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 18 )} 
+wvSetPosition -win $_nWave2 {("G1" 18)}
+wvCollapseBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 18)}
+wvSetPosition -win $_nWave2 {("G1" 22)}
+wvSelectSignal -win $_nWave2 {( "G1" 18 )} 
+wvSetPosition -win $_nWave2 {("G1" 18)}
+wvExpandBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 23)}
+wvSelectSignal -win $_nWave2 {( "G1" 19 )} 
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSetCursor -win $_nWave2 10209037.693253 -snap {("G1" 19)}
+wvSetCursor -win $_nWave2 10230381.130241 -snap {("G1" 19)}
+wvZoom -win $_nWave2 9924458.533412 10892027.676870
+wvZoom -win $_nWave2 10118186.426073 10283015.682813
+wvSelectSignal -win $_nWave2 {( "G1" 21 22 23 )} 
+srcBackwardHistory -win $_nTrace1
+srcHBSelect \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_no_timing_optimize.u_mem.rdata_timing_no_optimize" \
+           -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -word -line 110 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "metadata_rd_if.ack" -line 120 -pos 1
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -word -line 104 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_rdata.len" -line 104 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_fifo_rdata.len" -line 104 -pos 1 -win $_nTrace1
+srcSetScope \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_o\[7:0\]" \
+           -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "rdata_o" -line 27 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcSetScope \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_no_timing_optimize.u_mem.do_b\[7:0\]" \
+           -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -partailSelPos 5 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -partailSelPos 7 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "mem\[addr_b\]" -line 51 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvSelectGroup -win $_nWave2 {G2}
+verdiSetActWin -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 27 )} 
+wvExpandBus -win $_nWave2
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvScrollUp -win $_nWave2 1
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 27 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 27 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 27 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 27 )} 
+wvSetPosition -win $_nWave2 {("G1" 27)}
+wvCollapseBus -win $_nWave2
+wvSetPosition -win $_nWave2 {("G1" 27)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "di_a" -line 43 -pos 1 -win $_nTrace1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "di_a" -line 43 -pos 1 -win $_nTrace1
+srcAction -pos 42 5 1 -win $_nTrace1 -name "di_a" -ctrlKey off
+wvZoom -win $_nWave2 10030075.357392 10324085.179893
+verdiSetActWin -win $_nWave2
+wvZoom -win $_nWave2 10154476.637375 10173014.867334
+wvSetCursor -win $_nWave2 10159931.470522 -snap {("G1" 28)}
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_wdata" -line 140 -pos 1 -win $_nTrace1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "slot_id_wdata" -line 140 -pos 1 -win $_nTrace1
+srcAction -pos 139 7 7 -win $_nTrace1 -name "slot_id_wdata" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "mem_wr0_if.slot_id" -line 68 -pos 1
+srcSelect -win $_nTrace1 -signal "mem_wr0_if.req.alen\[1:0\]" -line 69 -pos 1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+wvZoomOut -win $_nWave2
+verdiSetActWin -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "mem_wr0_if.req.alen\[1:0\]" -line 69 -pos 1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "mem_wr0_if.req.alen\[1:0\]" -line 69 -pos 1
+srcAction -pos 68 1 11 -win $_nTrace1 -name "mem_wr0_if.req.alen\[1:0\]" -ctrlKey \
+          off
+srcDeselectAll -win $_nTrace1
+srcBackwardHistory -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_r.unnamed\$\$_1" -win \
+           $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_aw" -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "mem_wr0_if.req.alen\[1:0\]" -line 69 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "mem_wr0_if.req.alen\[1:0\]" -line 69 -pos 1
+srcAction -pos 68 1 7 -win $_nTrace1 -name "mem_wr0_if.req.alen\[1:0\]" -ctrlKey \
+          off
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcAction -pos 203 7 7 -win $_nTrace1 -name "mem_wr_if.req" -ctrlKey off
+srcDeselectAll -win $_nTrace1
+verdiFindBar -show -widget MTB_SOURCE_TAB_1
+verdiFindBar -hide -widget MTB_SOURCE_TAB_1
+verdiFindBar -show -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "axi_ctxt_rd_if.rdata" -next -widget MTB_SOURCE_TAB_1
+verdiFindBar -pattern "axi_ctxt_rd_if.rdata" -next -widget MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ALEN" -line 207 -pos 1
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ALEN" -line 207 -pos 1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ALEN" -line 207 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "mem_wr_if.req.alen" -line 207 -pos 1
+srcAddSelectedToWave -clipboard -win $_nTrace1
+wvDrop -win $_nWave2
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ALEN" -line 207 -pos 1
+wvSetOptions -win $_nWave2 -hierName on
+verdiSetActWin -win $_nWave2
+wvSetOptions -win $_nWave2 -hierName off
+wvSetOptions -win $_nWave2 -hierName on
+wvSetOptions -win $_nWave2 -hierName off
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ALEN" -line 207 -pos 1
+verdiSetActWin -dock widgetDock_MTB_SOURCE_TAB_1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ASIZE" -line 208 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ASIZE" -line 208 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ABURST" -line 209 -pos 1
+srcDeselectAll -win $_nTrace1
+srcSelect -signal "aligned_rch_entry.rid" -line 210 -pos 1 -win $_nTrace1
+srcDeselectAll -win $_nTrace1
+srcSelect -win $_nTrace1 -signal "CMSS_WRITE_ALEN" -line 207 -pos 1
+srcBackwardHistory -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_r.unnamed\$\$_1" -win \
+           $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_aw" -win $_nTrace1
+srcBackwardHistory -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_aw" -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_aw" -win $_nTrace1
+srcBackwardHistory -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_aw" -win $_nTrace1
+srcHBSelect \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_no_timing_optimize.u_mem" \
+           -win $_nTrace1
+srcBackwardHistory -win $_nTrace1
+srcHBSelect \
+           "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo.rdata_no_timing_optimize.u_mem" \
+           -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo" -win \
+           $_nTrace1
+srcBackwardHistory -win $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.u_slot_id_fifo" -win \
+           $_nTrace1
+srcHBSelect "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w" -win $_nTrace1
+verdiWindowResize -win $_Verdi_1 "485" "45" "1433" "1033"

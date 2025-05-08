@@ -1,0 +1,715 @@
+Magic 271485
+Revision Verdi_V-2023.12-SP2-1
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 0 2560 1369 453 316
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / -i 0 "" "/home/hsh/cocotb/cmss_top/dump.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 10151022.711673 10323104.781143
+cursor 10215000.000000
+marker 0.000000
+
+; visible top row signal index
+top 579
+; marker line index
+markerPos 643
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "core_aw_if(slave)"
+activeDirFile "" "/home/hsh/cocotb/cmss_top/dump.fsdb"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_txdata[527:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope phy_txdata_valid[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope phy_rxdata[527:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope phy_rxdata_valid[3:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_llctrl/trans_flit_payload_o[511:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/flit_payload_o[511:0]
+addSignal -expanded -h 15 -holdScope d2h_data_arr_i[0:3]
+addSignal -h 15 -holdScope d2h_data_arr_i[0]
+addSignal -h 15 -holdScope d2h_data_arr_i[1]
+addSignal -h 15 -holdScope d2h_data_arr_i[2]
+addSignal -h 15 -holdScope d2h_data_arr_i[3]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rollover_data_slot_cnt[3:0]
+addSignal -h 15 -holdScope slot_h0.d2h_data.valid
+addSignal -expanded -h 15 -holdScope d2h_data_hdr_arr_i[0:3]
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[0]
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[1]
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[2]
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[3]
+addSignal -expanded -h 15 -holdScope d2h_data_hdr_arr_i[0]
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[0].rsvd
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[0].poison
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[0].bogus
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[0].chunk_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope d2h_data_hdr_arr_i[0].uqid[11:0]
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[0].valid
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_credit/d2h_data_valid_cnt_i[2:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/wdata_hdr
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/data_if/data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/unnamed$$_0/data_header.uqid[11:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/wdata_hdr.uqid[11:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/u_hdr_fifo/valid_cnt[2:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/wren
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/data_if/data_is_valid
+addSubGroup "data_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/data_if/data_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope data_rxcrd_shared
+addSignal -h 15 -holdScope data_txblock_crd_flow
+addSignal -h 15 -holdScope data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_poison
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_parity[7:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+endSubGroup "data_if(rx)"
+addSubGroup "G16"
+endSubGroup "G16"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/core_aw_if/avalid
+addSignal -h 15 -UNSIGNED -HEX -holdScope aid[4:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aaddr[63:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope alen[7:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope asize[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aburst[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope acache[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aprot[2:0]
+addSubGroup "d2h_req_if(tx_header)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_req_ctrl/d2h_req_if/req_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_vc_id[3:0]
+addSignal -h 15 -holdScope req_shared_credit
+addSignal -expanded -h 15 -holdScope req_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_header.flit_mode[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_header.cache_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_header.address[51:6]
+addSignal -h 15 -holdScope req_header.address_parity
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_header.device_trust_level[1:0]
+addSignal -h 15 -holdScope req_header.nt
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_header.cqid[11:0]
+addSignal -h 15 -UNSIGNED -holdScope req_header.opcode[4:0]
+addSignal -h 15 -holdScope req_block
+endSubGroup "d2h_req_if(tx_header)"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/core_aw_if/aqos[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aregion[3:0]
+addSignal -h 15 -holdScope aready
+addSubGroup "h2d_rsp_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/h2d_rsp_if/rsp_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope rsp_rxcrd_shared
+addSignal -h 15 -holdScope rsp_txblock_crd_flow
+addSignal -h 15 -holdScope rsp_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_vc_id[3:0]
+addSignal -h 15 -holdScope rsp_shared_credit
+addSignal -expanded -h 15 -holdScope rsp_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.flit_mode[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cache_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_data[11:0]
+addSignal -h 15 -holdScope rsp_header.rsvd
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_pre[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cqid[11:0]
+addSignal -h 15 -UNSIGNED -holdScope rsp_header.opcode[3:0]
+addSubGroup "h2d_data_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_data_ctrl/h2d_data_if/data_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope data_rxcrd_shared
+addSignal -h 15 -holdScope data_txblock_crd_flow
+addSignal -h 15 -holdScope data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_poison
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_parity[7:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+endSubGroup "h2d_data_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/h2d_rsp_if/rsp_block
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/h2d_data_hdr_arr_o[0:3]
+addSignal -expanded -h 15 -holdScope h2d_data_hdr_arr_o[0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope h2d_data_hdr_arr_o[0].rsvd[7:0]
+addSignal -h 15 -holdScope h2d_data_hdr_arr_o[0].go_err
+addSignal -h 15 -holdScope h2d_data_hdr_arr_o[0].poison
+addSignal -h 15 -holdScope h2d_data_hdr_arr_o[0].chunk_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope h2d_data_hdr_arr_o[0].cqid[11:0]
+addSignal -h 15 -holdScope h2d_data_hdr_arr_o[0].valid
+addSignal -h 15 -holdScope h2d_data_hdr_arr_o[1]
+addSignal -h 15 -holdScope h2d_data_hdr_arr_o[2]
+addSignal -h 15 -holdScope h2d_data_hdr_arr_o[3]
+addSignal -expanded -h 15 -holdScope h2d_data_slot_arr_o[0:3]
+addSignal -h 15 -holdScope h2d_data_slot_arr_o[0]
+addSignal -h 15 -holdScope h2d_data_slot_arr_o[1]
+addSignal -h 15 -holdScope h2d_data_slot_arr_o[2]
+addSignal -h 15 -holdScope h2d_data_slot_arr_o[3]
+addSubGroup "data_if(tx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_h2d_data/hdr_empty
+addSignal -h 15 -holdScope data_empty
+addSignal -h 15 -holdScope hdr_rdata
+addSignal -expanded -h 15 -holdScope data_rdata
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rdata.data[511:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_h2d_data/data_if/data_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope data_rxcrd_shared
+addSignal -h 15 -holdScope data_txblock_crd_flow
+addSignal -h 15 -holdScope data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_poison
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_parity[7:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+endSubGroup "data_if(tx)"
+endSubGroup "h2d_rsp_if(rx)"
+addGroup "core_w_if(slave)" -e FALSE
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/core_w_if/wvalid
+addSignal -h 15 -UNSIGNED -HEX -holdScope wdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope wstrb[31:0]
+addSignal -h 15 -holdScope wlast
+addSignal -h 15 -holdScope wready
+addGroup "req_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_req/req_if/req_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope req_rxcrd_shared
+addSignal -h 15 -holdScope req_txblock_crd_flow
+addSignal -h 15 -holdScope req_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_vc_id[3:0]
+addSignal -h 15 -holdScope req_shared_credit
+addSignal -h 15 -holdScope req_header
+addSignal -h 15 -holdScope req_block
+addGroup "G4"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/flit_payload_o[511:0]
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_req/hdr_arr_o[0:3]
+addSignal -h 15 -holdScope hdr_arr_o[0]
+addSignal -h 15 -holdScope hdr_arr_o[1]
+addSignal -h 15 -holdScope hdr_arr_o[2]
+addSignal -h 15 -holdScope hdr_arr_o[3]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/d2h_req_valid_cnt_i[2:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_credit/d2h_req_valid_cnt_i[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope d2h_req_valid_cnt_o[2:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_txdata[527:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope phy_txdata_valid[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope phy_rxdata[527:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope phy_rxdata_valid[3:0]
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_encoder/flit_o
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit_o.crc[15:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit_o.payload[511:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_if/txdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_arbiter/flit_payload_o[511:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_if/txdata[527:0]
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_encoder/flit
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit.crc[15:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit.payload[511:0]
+addSignal -h 15 -holdScope flit_n
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload_i[511:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_arbiter/trans_flit_payload_i[511:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_llctrl/unnamed$$_1/llcrd_flit
+addSignal -h 15 -UNSIGNED /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_llctrl/state
+addSignal -h 15 -UNSIGNED -HEX -holdScope llcrd_time[31:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_rxdata_valid[3:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_llctrl/llcrd_time_n[31:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope num_ack[7:0]
+addSignal -h 15 -holdScope protocol_ack
+addSignal -h 15 -holdScope llcrd_ack
+addSignal -h 15 -holdScope trans_flit_valid_o
+addSignal -h 15 -holdScope trans_flit_ready_i
+addGroup "core_aw_if(AXI4_A_IF)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/core_aw_if/aclk
+addSignal -h 15 -holdScope avalid
+addSignal -h 15 -holdScope aready
+addSignal -h 15 -UNSIGNED -HEX -holdScope aid[4:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aaddr[63:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope acache[3:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope count[31:0]
+addGroup "core_w_if(AXI4_W_IF)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/core_w_if/wvalid
+addSignal -h 15 -holdScope wready
+addSignal -h 15 -UNSIGNED -HEX -holdScope wdata[255:0]
+addSignal -h 15 -holdScope wlast
+addSignal -h 15 -UNSIGNED -UDEC -holdScope last_count[31:0]
+addGroup "d2h_req_if(CPI_REQ_IF)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/d2h_req_if/req_is_valid
+addSignal -expanded -h 15 -holdScope req_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_header.address[51:6]
+addSignal -h 15 -holdScope req_header.address_parity
+addSignal -h 15 -UNSIGNED -HEX -holdScope req_header.device_trust_level[1:0]
+addSignal -h 15 -UNSIGNED -holdScope req_header.opcode[4:0]
+addSignal -h 15 -UNSIGNED /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_req_ctrl/fifo_rdata.opcode[4:0]
+addSignal -expanded -h 15 -holdScope fifo_wdata
+addSignal -h 15 -UNSIGNED -HEX -holdScope fifo_wdata.id[5:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope fifo_wdata.addr[63:0]
+addSignal -h 15 -UNSIGNED -holdScope fifo_wdata.opcode[4:0]
+addSignal -h 15 -holdScope fifo_empty
+addSignal -h 15 -holdScope fifo_rden
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_req_ctrl/d2h_req_if/req_is_valid
+addSubGroup "req0_if(dst)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_req_ctrl/req0_if/valid
+addSignal -expanded -h 15 -holdScope req
+addSignal -h 15 -UNSIGNED -HEX -holdScope req.id[5:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope req.addr[63:0]
+addSignal -h 15 -UNSIGNED -holdScope req.opcode[4:0]
+addSubGroup "req1_if(dst)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_req_ctrl/req1_if/valid
+addSignal -h 15 -holdScope req
+addSignal -h 15 -holdScope ready
+endSubGroup "req1_if(dst)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_req_ctrl/req0_if/ready
+endSubGroup "req0_if(dst)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/d2h_req_if/req_rxcrd_valid
+addGroup "G8"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_decoder/cclk
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/h2d_data_cnt_o[2:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_h2d_data/hdr_cnt_i[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_slot_cnt_i[2:0]
+addSignal -h 15 -holdScope data_slot_arr_i[0:3]
+addSubGroup "wr1_if(dst)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/wr1_if/req
+addSignal -h 15 -UNSIGNED -HEX -holdScope slot_id[5:0]
+addSignal -h 15 -holdScope offset
+addSignal -expanded -h 15 -holdScope data
+addSignal -h 15 -UNSIGNED -HEX -holdScope data.rdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data.rresp[1:0]
+addSignal -h 15 -holdScope data.rlast
+addSubGroup "core_r_if(slave)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/core_r_if/rvalid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rid[4:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rresp[1:0]
+addSignal -h 15 -holdScope rlast
+addSignal -h 15 -holdScope rready
+endSubGroup "core_r_if(slave)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/wr1_if/ack
+endSubGroup "wr1_if(dst)"
+addSubGroup "h2d_data_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_data_ctrl/h2d_data_if/data_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope data_rxcrd_shared
+addSignal -h 15 -holdScope data_txblock_crd_flow
+addSignal -h 15 -holdScope data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_poison
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_parity[7:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+endSubGroup "h2d_data_if(rx)"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_rxdata[527:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/payload_i[511:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_decoder/flit_i
+addSignal -h 15 -holdScope err_crc_n
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload_o[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit_i[511:0]
+addSignal -h 15 -holdScope err_crc_n
+addSignal -h 15 -holdScope err_crc
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/unnamed$$_0/payload
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.slot3[127:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.slot2[127:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.slot1[127:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.slot0[95:0]
+addSignal -expanded -h 15 -holdScope payload.flit_hdr
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.data_crd[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.req_crd[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.rsp_crd[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.rsvd2[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.slot3[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.slot2[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.slot1[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload.flit_hdr.slot0[2:0]
+addSignal -h 15 -holdScope payload.flit_hdr.sz
+addSignal -h 15 -holdScope payload.flit_hdr.be
+addSignal -h 15 -holdScope payload.flit_hdr.ak
+addSignal -h 15 -holdScope payload.flit_hdr.rsvd
+addSignal -h 15 -UNSIGNED -holdScope payload.flit_hdr.flit_type
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/h2d_rsp_hdr_arr_o[0:3]
+addSignal -h 15 -holdScope h2d_rsp_hdr_arr_o[0]
+addSignal -h 15 -holdScope h2d_rsp_hdr_arr_o[1]
+addSignal -h 15 -holdScope h2d_rsp_hdr_arr_o[2]
+addSignal -h 15 -holdScope h2d_rsp_hdr_arr_o[3]
+addSubGroup "rsp_if(tx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_h2d_rsp/rsp_if/rsp_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope rsp_rxcrd_shared
+addSignal -h 15 -holdScope rsp_txblock_crd_flow
+addSignal -h 15 -holdScope rsp_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_vc_id[3:0]
+addSignal -h 15 -holdScope rsp_shared_credit
+addSignal -expanded -h 15 -holdScope rsp_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.flit_mode[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cache_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_data[11:0]
+addSignal -h 15 -holdScope rsp_header.rsvd
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_pre[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cqid[11:0]
+addSignal -h 15 -UNSIGNED -holdScope rsp_header.opcode[3:0]
+addSignal -h 15 -holdScope rsp_block
+endSubGroup "rsp_if(tx)"
+addGroup "d2h_data_if(tx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/d2h_data_if/data_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope data_rxcrd_shared
+addSignal -h 15 -holdScope data_txblock_crd_flow
+addSignal -h 15 -holdScope data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_poison
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_parity[7:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+addGroup "G10"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/ctrl_fifo_rdata
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/valid_cnt_o[2:0]
+addSubGroup "data_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/data_if/data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_poison
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_parity[7:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+endSubGroup "data_if(rx)"
+addGroup "G11"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_if/txdata[527:0]
+addSubGroup "d2h_data_if(tx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_w/rd0_if/req
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/wdata_rd_if0/req
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/target_req
+addSignal -h 15 -holdScope ctrl_fifo_empty
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/u_fifo/wren_i
+addSignal -h 15 -UNSIGNED -HEX -holdScope wdata_i[18:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/hostw_d2h_data_ctrl_if/valid
+addSignal -h 15 -holdScope data
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/hostw_d2h_data_ctrl_if/data
+addSignal -h 15 -UNSIGNED -HEX -holdScope data.slot_id[5:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data.uqid[11:0]
+addSignal -h 15 -holdScope data.rdsrc
+addSignal -h 15 -holdScope valid
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/delayed_rsp_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rsp_header.flit_mode[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rsp_header.cache_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rsp_header.rsp_data[11:0]
+addSignal -h 15 -holdScope delayed_rsp_header.rsvd
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rsp_header.rsp_pre[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rsp_header.cqid[11:0]
+addSignal -h 15 -UNSIGNED -holdScope delayed_rsp_header.opcode[3:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/ctxt_rd_if/rden
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/rsp_header
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/h2d_rsp_if/rsp_is_valid
+addSignal -h 15 -holdScope rsp_header
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_h2d_rsp/rdata
+addSignal -h 15 -holdScope empty
+addSignal -h 15 -UNSIGNED -HEX -holdScope valid_cnt_i[2:0]
+addSignal -h 15 -holdScope hdr_arr_i[0:3]
+addSignal -h 15 -holdScope hdr_arr_i[0:3]
+addSignal -h 15 -UNSIGNED -HEX -holdScope valid_cnt_i[2:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_txdata[527:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope phy_rxdata[527:0]
+addSignal -h 15 -holdScope aclk
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/flit_ready_i
+addSignal -h 15 -UNSIGNED -HEX -holdScope rollover_data_slot_cnt[3:0]
+addSignal -expanded -h 15 -holdScope d2h_req_hdr_arr_i[0:3]
+addSignal -h 15 -holdScope d2h_req_hdr_arr_i[0]
+addSignal -h 15 -holdScope d2h_req_hdr_arr_i[1]
+addSignal -h 15 -holdScope d2h_req_hdr_arr_i[2]
+addSignal -h 15 -holdScope d2h_req_hdr_arr_i[3]
+addSignal -h 15 -holdScope d2h_data_hdr_arr_i[0:3]
+addSignal -h 15 -holdScope d2h_data_arr_i[0:3]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/hdr_arr_o[0:3]
+addSignal -h 15 -holdScope wren
+addSignal -h 15 -UNSIGNED -HEX -holdScope valid_cnt_o[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope taken_cnt_i[2:0]
+addSubGroup "data_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/data_arr_o[0:3]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/rollover_data_slot_cnt_n[3:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/data_if/data_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_protocol_id[3:0]
+addSignal -h 15 -holdScope data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+endSubGroup "data_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/d2h_rsp_hdr_arr_i[0:1]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/h2d_rsp_hdr_arr_o[0:3]
+addSignal -h 15 -UNSIGNED -holdScope state
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/unnamed$$_0/payload.flit_hdr.slot0[2:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/h2d_data_hdr_arr[0:3]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_w/rd1_if/req
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_w/data_valid[63:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/target_ack
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/wdata_rd_if0/ack
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/u_ctrl_delay/valid_i
+addSignal -h 15 -holdScope valid_o
+addSignal -h 15 -holdScope valid_arr[0:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/wdata_data_valid
+addSignal -h 15 -holdScope has_d2h_credit
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/d2h_data_if/data_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope data_rxcrd_shared
+addSignal -h 15 -holdScope data_txblock_crd_flow
+addSignal -h 15 -holdScope data_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_vc_id[3:0]
+addSignal -h 15 -holdScope data_shared_credit
+addSignal -h 15 -holdScope data_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_body[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_byte_enable[63:0]
+addSignal -h 15 -holdScope data_poison
+addSignal -h 15 -UNSIGNED -HEX -holdScope data_parity[7:0]
+addSignal -h 15 -holdScope data_eop
+addSignal -h 15 -holdScope data_cmd_parity
+addSignal -h 15 -holdScope data_block
+endSubGroup "d2h_data_if(tx)"
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_encoder/flit_n
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit_n.crc[15:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit_n.payload[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload_i[511:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_arbiter/trans_flit_payload_i[511:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_llctrl/packed_flit_payload_i[511:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/slot_h1
+addSignal -h 15 -UNSIGNED -HEX -holdScope rollover_data_slot[0][127:0]
+addSignal -h 15 -holdScope rollover_data_slot_n[0:15]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rollover_data_slot_cnt[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rollover_data_slot_cnt_n[3:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/hdr_arr_o[0:3]
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/d2h_data_arr_i[0:3]
+addSignal -h 15 -holdScope d2h_data_arr_i[0]
+addSignal -h 15 -holdScope d2h_data_arr_i[1]
+addSignal -h 15 -holdScope d2h_data_arr_i[2]
+addSignal -h 15 -holdScope d2h_data_arr_i[3]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/delayed_rsp_header.rsp_data[3:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_h2d_data/hdr_arr_i[0:3]
+addSignal -expanded -h 15 -holdScope hdr_arr_i[0:3]
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_req/hdr_arr_o[0:3]
+addSignal -h 15 -holdScope hdr_arr_o[0]
+addSignal -h 15 -holdScope hdr_arr_o[1]
+addSignal -h 15 -holdScope hdr_arr_o[2]
+addSignal -h 15 -holdScope hdr_arr_o[3]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/wdata_data_valid
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/u_fifo/wren_i
+addSignal -h 15 -UNSIGNED -HEX -holdScope wdata_i[18:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_d2h_data/wren
+addGroup "G12"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_if/txdata[527:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_tx_pack/rollover_data_slot_cnt[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rollover_data_slot_cnt_n[3:0]
+addSignal -h 15 -holdScope slot_h0.d2h_data.valid
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/phy_rxdata[527:0]
+addSignal -h 15 -UNSIGNED /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/state
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/unnamed$$_0/payload.flit_hdr.slot0[2:0]
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_rx_unpack/payload_i[511:0]
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_decoder/err_crc_o
+addSignal -h 15 -holdScope valid_i
+addSignal -h 15 -holdScope cclk
+addSignal -h 15 -holdScope valid_i
+addSignal -h 15 -holdScope valid_o
+addSignal -h 15 -UNSIGNED -HEX -holdScope flit_i[511:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope payload_o[511:0]
+addSignal -h 15 -holdScope err_crc_n
+addSignal -h 15 -holdScope err_crc
+addSignal -h 15 -holdScope creset_n
+addSignal -h 15 -holdScope err_static0_n
+addSignal -h 15 -holdScope err_static0
+addGroup "core_ar_if(AXI4_A_IF)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/core_ar_if/aclk
+addSignal -h 15 -holdScope areset_n
+addSignal -h 15 -holdScope avalid
+addSignal -h 15 -holdScope aready
+addSignal -h 15 -UNSIGNED -HEX -holdScope aid[4:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aaddr[63:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope alen[7:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope asize[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aburst[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope acache[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aprot[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aqos[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aregion[3:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope count[31:0]
+addSubGroup "mem_ar_if(AXI4_A_IF)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/mem_ar_if/aclk
+addSignal -h 15 -holdScope areset_n
+addSignal -h 15 -holdScope avalid
+addSignal -h 15 -holdScope aready
+addSignal -h 15 -UNSIGNED -HEX -holdScope aid[5:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aaddr[63:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope alen[7:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope asize[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aburst[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope acache[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aprot[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aqos[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aregion[3:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope count[31:0]
+addSubGroup "mem_r_if(AXI4_R_IF)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/mem_rvalid
+addSignal -h 15 /CMSS_TOP_WRAPPER/mem_r_if/aclk
+addSignal -h 15 -holdScope areset_n
+addSignal -h 15 -holdScope rvalid
+addSignal -h 15 -holdScope rready
+addSignal -h 15 -UNSIGNED -HEX -holdScope rid[5:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rresp[1:0]
+addSignal -h 15 -holdScope rlast
+addSignal -h 15 -UNSIGNED -UDEC -holdScope count[31:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope last_count[31:0]
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_mem_r/delayed_rch_entry
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rch_entry.rid[5:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rch_entry.rdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope delayed_rch_entry.rresp[1:0]
+addSignal -h 15 -holdScope delayed_rch_entry.rfirst
+addSignal -h 15 -holdScope delayed_rch_entry.rlast
+addSubGroup "core_r_if(slave)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/core_r_if/rvalid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rid[4:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rresp[1:0]
+addSignal -h 15 -holdScope rlast
+addSignal -h 15 -holdScope rready
+endSubGroup "core_r_if(slave)"
+endSubGroup "mem_r_if(AXI4_R_IF)"
+endSubGroup "mem_ar_if(AXI4_A_IF)"
+addGroup "G15"
+addSignal -expanded -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_mem_ar/RS_winner_req
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.aid[4:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.aaddr[63:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.alen[7:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.asize[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.aburst[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.acache[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.aprot[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.aqos[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope RS_winner_req.aregion[3:0]
+addSignal -h 15 -holdScope winner_ready
+addSignal -h 15 -holdScope winner_valid
+addSignal -h 15 -holdScope winner_rw
+addSubGroup "core_aw_if(slave)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_mem_ar/core_aw_if/avalid
+addSignal -h 15 -UNSIGNED -HEX -holdScope aid[4:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aaddr[63:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope alen[7:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope asize[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aburst[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope acache[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aprot[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aqos[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope aregion[3:0]
+addSignal -h 15 -holdScope aready
+endSubGroup "core_aw_if(slave)"
+addGroup "G16"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/delayed_rsp_header.rsp_data[11:0]
+addSignal -expanded -h 15 -holdScope rsp_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.flit_mode[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cache_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_data[11:0]
+addSignal -h 15 -holdScope rsp_header.rsvd
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_pre[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cqid[11:0]
+addSignal -h 15 -UNSIGNED -holdScope rsp_header.opcode[3:0]
+addSubGroup "h2d_rsp_if(rx)"
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_h2d_rsp_ctrl/h2d_rsp_if/rsp_rxcrd_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_rxcrd_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_rxcrd_vc_id[3:0]
+addSignal -h 15 -holdScope rsp_rxcrd_shared
+addSignal -h 15 -holdScope rsp_txblock_crd_flow
+addSignal -h 15 -holdScope rsp_is_valid
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_protocol_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_vc_id[3:0]
+addSignal -h 15 -holdScope rsp_shared_credit
+addSignal -expanded -h 15 -holdScope rsp_header
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.flit_mode[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cache_id[3:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_data[11:0]
+addSignal -h 15 -holdScope rsp_header.rsvd
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.rsp_pre[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rsp_header.cqid[11:0]
+addSignal -h 15 -UNSIGNED -holdScope rsp_header.opcode[3:0]
+addSignal -h 15 -holdScope rsp_block
+endSubGroup "h2d_rsp_if(rx)"
+addGroup "G17"
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cxl/u_h2d_rsp/rdata.rsp_data[11:0]
+addSignal -expanded -h 15 -holdScope hdr_arr_i[0:3]
+addSignal -expanded -h 15 -holdScope hdr_arr_i[0]
+addSignal -h 15 -holdScope hdr_arr_i[0].rsvd
+addSignal -h 15 -UNSIGNED -HEX -holdScope hdr_arr_i[0].cqid[11:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope hdr_arr_i[0].rsp_pre[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope hdr_arr_i[0].rsp_data[11:0]
+addSignal -h 15 -UNSIGNED -holdScope hdr_arr_i[0].opcode[3:0]
+addSignal -h 15 -holdScope hdr_arr_i[0].valid
+addSignal -h 15 -holdScope hdr_arr_i[1]
+addSignal -h 15 -holdScope hdr_arr_i[2]
+addSignal -h 15 -holdScope hdr_arr_i[3]
+addGroup "G18"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+

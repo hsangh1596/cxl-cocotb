@@ -1,0 +1,8 @@
+@FSDB rc file Version 1.0
+[VRTL_FILE_HEADER]
+# !! DON'T EDIT [VRTL_FILE_HEADER] SESSION !!
+Version = 1
+[VRTL_FILE_SOURCE]
+FileType = split
+File1 = /home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/dump.fsdb
+File2 = /home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/evaluate_result.fsdb

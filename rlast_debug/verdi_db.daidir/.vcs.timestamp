@@ -1,0 +1,207 @@
+10       
+0 CPI_PKG.svh
+0 /usr/synopsys/vcs/V-2023.12-SP2/etc/systemverilog/CPI_PKG.svh
+0 CXL_PKG.svh
+0 /usr/synopsys/vcs/V-2023.12-SP2/etc/systemverilog/CXL_PKG.svh
+0 PIPE_PKG.svh
+0 /usr/synopsys/vcs/V-2023.12-SP2/etc/systemverilog/PIPE_PKG.svh
+0 CMSS_PKG.svh
+0 /usr/synopsys/vcs/V-2023.12-SP2/etc/systemverilog/CMSS_PKG.svh
+0 AXI4_PKG.svh
+0 /usr/synopsys/vcs/V-2023.12-SP2/etc/systemverilog/AXI4_PKG.svh
+49
++cli+4
++itf+/usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/vcsdp_lite.tab
++memcbk
++vcs+fsdbon
++vcsd1
++vpi
++vpi
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/synopsys/vcs/V-2023.12-SP2/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/libvirsim.so /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/liberrorinf.so /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/libsnpsmalloc.so /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=/usr/synopsys/verdi/V-2023.12-SP2-1//share/PLI/VCS/LINUX64/pli.a -ldl -lm
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/synopsys/vcs/V-2023.12-SP2/include
+-Mxllcflags=
+-P
+-P
+-Xcbug=0x1
+-Xufe=2steps
+-debug=3
+-debug_access+all
+-debug_access+r+w-memcbk
+-debug_region+cell
+-f /home/peaceyh1/cocotb/cocotb_cmss_top/design/filelist.f
+-fsdb
+-full64
+-gen_obj
+-kdb
+-load
+-picarchive
+-sverilog
+-timescale=1ns/1ps
+-top
+/usr/synopsys/vcs/V-2023.12-SP2/linux64/bin/vcs1
+CMSS_TOP_WRAPPER
+pli.tab
+/home/peaceyh1/.local/lib/python3.10/site-packages/cocotb/libs/libcocotbvpi_vcs.so
+/usr/synopsys/verdi/V-2023.12-SP2-1//share/PLI/VCS/LINUX64/verdi.tab
+/home/peaceyh1/cocotb/cocotb_cmss_top/design/filelist.f
+64
+XDG_SESSION_TYPE=tty
+XDG_SESSION_ID=618
+XDG_SESSION_CLASS=user
+XDG_RUNTIME_DIR=/run/user/2016
+XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+WORKING_DIR=/home/peaceyh1/cocotb/cocotb_cmss_top
+WAVES=1
+VMR_MODE_FLAG=64
+VIVADO_HOME=/home/temp_id/Vivado/2024.1
+VERDI_HOME=/usr/synopsys/verdi/V-2023.12-SP2-1/
+VCS_PYTHON3=/usr/synopsys/vcs/V-2023.12-SP2/linux64/bin/Python-3.6.1/bin/python3
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_HOME=/usr/synopsys/vcs/V-2023.12-SP2
+VCS_EXEC_DONE=1
+VCS_DEPTH=0
+VCS_BIN_DIR=/usr/synopsys/vcs/V-2023.12-SP2/bin
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOPLEVEL=CMSS_TOP_WRAPPER
+TOOL_HOME=/usr/synopsys/vcs/V-2023.12-SP2/linux64
+TB_FILELIST=/home/peaceyh1/cocotb/cocotb_cmss_top/sim/env/compile.f
+SSH_TTY=/dev/pts/13
+SSH_CONNECTION=115.145.211.251 54976 115.145.211.102 7777
+SSH_CLIENT=115.145.211.251 54976 7777
+SPYGLASS_HOME=/home/temp_id/synopsys/spyglass/P-2019.06-SP2-17/SPYGLASS_HOME
+SNPS_VERDI_INTERNAL_LP_XML_NEW_FLOW=1
+SNPS_VCS_PYTHON3=/usr/synopsys/vcs/V-2023.12-SP2/linux64/bin/Python-3.6.1/bin/python3
+SNPS_VCS_CLANG_PATH=/usr/synopsys/vcs/V-2023.12-SP2/linux64/clang
+SNPS_INTERNAL_VCS_LINUX_OS=ubuntu
+SIM_BUILD=sim_build
+SIM=vcs
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+PYTHONHOME=/usr
+PRIME_HOME=/home/temp_id/synopsys/prime/R-2020.09-SP1
+OVA_UUM=0
+OS=Linux
+MOTD_SHOWN=pam
+MFLAGS=-w
+MAKE_TERMOUT=/dev/pts/13
+MAKE_TERMERR=/dev/pts/13
+MAKEOVERRIDES=${-*-command-variables-*-}
+MAKELEVEL=2
+MAKEFLAGS=w -- SIM=vcs WAVES=1
+LIBPYTHON_LOC=/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_ALL=C
+IP_NAME=CMSS
+HISTTIMEFORMAT=20%y/%m/%d %T 
+FM_HOME=/home/temp_id/synopsys/fm/R-2020.09-SP1
+EUCLIDE_HOME=/home/temp_id/synopsys/eclipse
+DESIGN_TOP=CMSS_TOP_WRAPPER
+DESIGN_FILELIST=/home/peaceyh1/cocotb/cocotb_cmss_top/design/filelist.f
+DC_HOME=/usr/synopsys/syn/V-2023.12-SP5
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/2016/bus
+COCOTB_RESULTS_FILE=results.xml
+CMSS_SIM_HOME=/home/peaceyh1/cocotb/cocotb_cmss_top/sim
+CMSS_HOME=/home/peaceyh1/cocotb/cocotb_cmss_top
+ARMLMD_LICENSE_FILE=8224@semi-lic.skku.edu
+ACTION_HOME=/home/peaceyh1/cocotb/cocotb_cmss_top/actions
+0
+0
+71
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/AXI4_PKG.svh
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_PKG.svh
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/PIPE_PKG.svh
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CXL_PKG.svh
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CPI_PKG.svh
+1740553940 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_TOP_WRAPPER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_TOP.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TOP.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_RX_UNPACK.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_RX_CRC_DEC.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_RX_LLCTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_RX_RETRY.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_RX_INIT.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_CRC_ENC.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_ARBITER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_RETRY.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_CREDIT.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_CREDIT_UPDATE.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_LLCTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_INIT.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_TX_PACK.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_H2D_DATA_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_H2D_RSP_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_D2H_RSP_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_D2H_REQ_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CXL_D2H_DATA_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_MEM_TOP.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_TOP_XLNX_WRAPPER.v
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_TOP_WRAPPER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_TOP.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CPI_RX_BUFFER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_H2D_RSP_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_H2D_DATA_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_REQ_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_ID_MANAGER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_CMD_HANDLER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MD_BUFFER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_B_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_R_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_W_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_AW_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_AR_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_CORE_B_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_CORE_R_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_CORE_W_CTRL.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_CFG.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_CFG_pkg.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CPI_RX_CONNECT.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CPI_TX_CONNECT.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CPI_FABRIC_CONNECT.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CPI_AGENT_CONNECT.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_REORDER_BUFFER.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_SOP_GEN.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_SDP_RAM.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_SERDES_FIFO.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_SERIALIZE_FIFO.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_DESERIALIZE_FIFO.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_FR_REGISTER_SLICE.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_FIFO.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_DELAY.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_ARBITER_RR.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_IF.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/PIPE_IF.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CPI_IF.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/AXI4_IF.sv
+1740533294 /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/APB_IF.sv
+1740533293 /home/peaceyh1/cocotb/cocotb_cmss_top/design/filelist.f
+1721037471 /usr/synopsys/verdi/V-2023.12-SP2-1//share/PLI/VCS/LINUX64/verdi.tab
+1740644143 pli.tab
+1717384209 /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/vcsdp_lite.tab
+4
+1717385583 /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/libvirsim.so
+1717384763 /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/liberrorinf.so
+1717384706 /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/libsnpsmalloc.so
+1717384758 /usr/synopsys/vcs/V-2023.12-SP2/linux64/lib/libvfs.so
+1740644146 simv.daidir
+-1 partitionlib

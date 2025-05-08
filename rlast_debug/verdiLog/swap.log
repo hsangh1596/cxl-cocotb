@@ -1,0 +1,66 @@
+version: (200506)
+
+available memory: 64M bytes
+used memory: 647168 bytes [need 632K bytes if disable swap]
+
+used block: 30 [memory(30) file(0)]
+                 [ 8K(23) 64K(7) { total 632K bytes } ]
+overhead: (9523) bytes for (30) blocks [Average: (317) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 7(times) 217K(bytes) [37K bytes compressed data from file]
+access => 779141(times) 6145M(bytes)
+          [hit ratio: 99.9991%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdiLog)
+used swap file number: (11)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (12)
+closeHead: (1)
+closeTail: (11)
+openCnt: (8)
+fid(11): fd(1073741830) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_CACHE_MEM_AW_CTRL.sv.tdc)
+	size(6879) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(0) cool(10) pos(0)
+fid(10): fd(1073741829) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_CACHE_MEM_R_CTRL.sv.tdc)
+	size(16820) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(11) cool(7) pos(0)
+fid(9): fd(0) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_CACHE_TOP.sv.tdc)
+	size(20953) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(0) cool(0) pos(0)
+fid(8): fd(0) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_IF.sv.tdc)
+	size(10423) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(0) cool(0) pos(0)
+fid(7): fd(1073741828) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_CACHE_MD_BUFFER.sv.tdc)
+	size(6630) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(10) cool(6) pos(0)
+fid(6): fd(1073741827) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/SAL_FIFO.sv.tdc)
+	size(7112) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(7) cool(5) pos(0)
+fid(5): fd(1073741826) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/SAL_SDP_RAM.sv.tdc)
+	size(2618) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(6) cool(4) pos(0)
+fid(4): fd(1073741825) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_CACHE_CORE_R_CTRL.sv.tdc)
+	size(8737) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(5) cool(2) pos(0)
+fid(3): fd(0) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_CACHE_TOP_WRAPPER.sv.tdc)
+	size(20613) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(0) cool(0) pos(0)
+fid(2): fd(24) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdiLog/_swap_0001#-2001676505#2055829)
+	size(0) lastModTime(0) curModTime(1741071650)
+	mode(w+b)	hot(4) cool(1) pos(0)
+fid(1): fd(1073741824) fileName(/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdi_db.daidir/kdb.elab++/work.lib++/CMSS_TOP_WRAPPER.sv.tdc)
+	size(18327) lastModTime(1740644144) curModTime(1740644144)
+	mode(rb)	hot(2) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+==================================================
+mySelf(0x3e6cc1f0) pre(0x3c0e8030) next((nil))
+version(200506)
+date(May 16 2024 02:58:46)

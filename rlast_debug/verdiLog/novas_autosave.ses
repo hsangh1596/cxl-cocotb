@@ -1,0 +1,98 @@
+@verdi rc file Version 1.0
+[General]
+saveDB = TRUE
+relativePath = FALSE
+saveSingleView = FALSE
+saveNWaveWinId = 
+VerdiVersion = Verdi_V-2023.12-SP2-1
+[KeyNote]
+Line1 = Automatic Backup 0
+Line2 = Save Open Database Information: Yes
+Line3 = Path Option: Absolute Paths
+Line4 = Windows Option: All Windows
+[OneSearch]
+isExisted = TRUE
+[TestBench]
+ConstrViewShow = 0
+InherViewShow = 0
+FSDBMsgShow = 0
+AnnotationShow = 0
+Console = FALSE
+powerDumped = 0
+[fusa]
+fdb_server = 
+fdb_proj = 
+fdb_campaign = 
+fdb_tool = 
+[hb]
+postSimFile = /home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/dump.fsdb
+syncTime = 26
+viewport = 1923 267 1727 1163 0 0 464 1725
+activeNode = "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_core_b.u_data_mem"
+activeScope = "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_core_b.u_data_mem"
+activeFile = "/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_SDP_RAM.sv"
+interactiveMode = False
+viewType = Source
+simulatorMode = False
+sourceBeginLine = 5
+baMode = False
+srcLineNum = True
+AutoWrap = True
+IdentifyFalseLogic = False
+syncSignal = False
+traceMode = Hierarchical
+showTraceInSchema = True
+paMode = False
+funcMode = False
+powerAwareAnnot = True
+safetyAwareAnnot = True
+amsAnnot = True
+DnDtraceCrossHierOnly = True
+leadingZero = False
+signalPane = False
+SourceVerticalScrollLines = 5
+Scope1 = "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_core_b.u_data_mem"
+Scope2 = "CMSS_TOP_WRAPPER.u_cmss.u_cache.u_core_b"
+Scope3 = "CMSS_TOP_WRAPPER.u_cmss.u_cache"
+Scope4 = "CMSS_TOP_WRAPPER.u_cmss"
+Scope5 = "CMSS_TOP_WRAPPER"
+sdfCheckUndef = FALSE
+simFlow = FALSE
+[hb.design]
+importCmd = "-rcfile" "rlast_error.rc" "-dbdir" "verdi_db.daidir" 
+invokeDir = /home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug
+[hb.sourceTab.1]
+scope = CMSS_TOP_WRAPPER.u_cmss.u_cache.u_core_b.u_data_mem
+File = /home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/SAL_SDP_RAM.sv
+Line = 6
+[nMemoryManager]
+WaveformFile = /home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/dump.fsdb
+UserActionNum = 0
+nMemWindowNum = 0
+[wave.0]
+viewPort = 0 25 1727 489 1546 65
+primaryWindow = TRUE
+SessionFile = /home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/rlast_debug/verdiLog/novas_autosave.ses.wave.0
+displayGrid = FALSE
+hierarchicalName = TRUE
+waveformToolTip = FALSE
+snap = TRUE
+displayLeadingZeros = FALSE
+fixDelta = FALSE
+displayCursorMarker = FALSE
+autoUpdate = FALSE
+highlightGlitchs = FALSE
+waveformSyncCursorMarker = FALSE
+waveformSyncHorizontalRange = FALSE
+waveformSyncVerticalscroll = FALSE
+displayErrors = TRUE
+displayMsgSymbols = TRUE
+showMsgDescriptions = TRUE
+autoFit = FALSE
+displayDeltaY = FALSE
+centerCursor = FALSE
+fsaRegMask = TRUE
+fsaCoreMask = TRUE
+fsaSfsmMask = TRUE
+fsaEcrMask = TRUE
+tPropMask = TRUE

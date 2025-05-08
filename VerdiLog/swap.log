@@ -1,0 +1,51 @@
+version: (200506)
+
+available memory: 64M bytes
+used memory: 360448 bytes [need 352K bytes if disable swap]
+
+used block: 16 [memory(16) file(0)]
+                 [ 8K(12) 64K(4) { total 352K bytes } ]
+overhead: (9523) bytes for (16) blocks [Average: (595) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 4(times) 208K(bytes) [32K bytes compressed data from file]
+access => 626607(times) 4926M(bytes)
+          [hit ratio: 99.9994%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/hsh/cocotb/cmss_top/VerdiLog)
+used swap file number: (6)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (7)
+closeHead: (1)
+closeTail: (6)
+openCnt: (5)
+fid(6): fd(1073741827) fileName(/home/hsh/cocotb/cmss_top/sim_build/simv.daidir/kdb.elab++/work.lib++/CMSS_CACHE_MEM_R_CTRL.sv.tdc)
+	size(16765) lastModTime(1742354200) curModTime(1742354200)
+	mode(rb)	hot(0) cool(5) pos(0)
+fid(5): fd(1073741826) fileName(/home/hsh/cocotb/cmss_top/sim_build/simv.daidir/kdb.elab++/work.lib++/CMSS_CXL_TOP.sv.tdc)
+	size(20527) lastModTime(1742354200) curModTime(1742354200)
+	mode(rb)	hot(6) cool(4) pos(0)
+fid(4): fd(1073741825) fileName(/home/hsh/cocotb/cmss_top/sim_build/simv.daidir/kdb.elab++/work.lib++/CMSS_TOP.sv.tdc)
+	size(6579) lastModTime(1742354200) curModTime(1742354200)
+	mode(rb)	hot(5) cool(2) pos(0)
+fid(3): fd(0) fileName(/home/hsh/cocotb/cmss_top/sim_build/simv.daidir/kdb.elab++/work.lib++/CMSS_CACHE_TOP_WRAPPER.sv.tdc)
+	size(20570) lastModTime(1742354200) curModTime(1742354200)
+	mode(rb)	hot(0) cool(0) pos(0)
+fid(2): fd(48) fileName(/home/hsh/cocotb/cmss_top/VerdiLog/_swap_0001#-2001676505#2893089)
+	size(0) lastModTime(0) curModTime(1742354249)
+	mode(w+b)	hot(4) cool(1) pos(0)
+fid(1): fd(1073741824) fileName(/home/hsh/cocotb/cmss_top/sim_build/simv.daidir/kdb.elab++/work.lib++/CMSS_TOP_WRAPPER.sv.tdc)
+	size(18350) lastModTime(1742354200) curModTime(1742354200)
+	mode(rb)	hot(2) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+==================================================
+mySelf(0x39673040) pre(0x375cbaa0) next((nil))
+version(200506)
+date(May 16 2024 02:58:46)

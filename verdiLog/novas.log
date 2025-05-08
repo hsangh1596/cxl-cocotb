@@ -1,0 +1,46 @@
+Verdi (R)
+
+Release Verdi_V-2023.12-SP2-1 for (RH Linux x86_64/64bit) -- Mon Jul 15 02:51:00 PDT 2024
+
+Copyright (c) 1999 - 2024 Synopsys, Inc.
+This software and the associated documentation are proprietary to Synopsys, Inc. 
+This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc. 
+All other use, reproduction, or distribution of this software is strictly prohibited.
+
+
+Info: Running in interactive mode.
+Total number of converted HDL2CELL cells=0 (normal modules=0)
+[Symbol Library from default setting]
+  library Path = /usr/synopsys/verdi/V-2023.12-SP2-1/share/symlib/64
+  library Name = default_u
+[Symbol Library from manual setting]
+  There are 0 library path(s) and 0 library name(s):
+
+
+Inferring module CMSS_CXL_RX_UNPACK, file /home/hsh/cocotb//design/sverilog/CMSS_CXL_RX_UNPACK.sv, line 4~983 (Verilog)
+
+
+Verdi design analysis: total error(s) 0, total warning(s) 0.
+Inferring module CMSS_CXL_TOP, file /home/hsh/cocotb//design/sverilog/CMSS_CXL_TOP.sv, line 5~601 (Verilog)
+
+
+Verdi design analysis: total error(s) 0, total warning(s) 0.
+Inferring module CMSS_TOP, file /home/hsh/cocotb//design/sverilog/CMSS_TOP.sv, line 8~167 (Verilog)
+
+
+Verdi design analysis: total error(s) 0, total warning(s) 0.
+Inferring module CMSS_TOP_WRAPPER, file /home/hsh/cocotb//design/sverilog/CMSS_TOP_WRAPPER.sv, line 9~485 (Verilog)
+
+
+Verdi design analysis: total error(s) 0, total warning(s) 0.
+Inferring module CMSS_CXL_RX_RETRY, file /home/hsh/cocotb//design/sverilog/CMSS_CXL_RX_RETRY.sv, line 8~170 (Verilog)
+
+
+Verdi design analysis: total error(s) 0, total warning(s) 0.
+Inferring module CMSS_CXL_RX_CRC_DEC, file /home/hsh/cocotb//design/sverilog/CMSS_CXL_RX_CRC_DEC.sv, line 8~55 (Verilog)
+
+
+Verdi design analysis: total error(s) 0, total warning(s) 0.
+Tracing stopped at CMSS_TOP_WRAPPER.u_cmss.u_cxl.u_rx_unpack.h2d_data_cnt[2:0]#10275000 because multiple active drivers have transitions.
+Select a driver with a transition to continue tracing.
+

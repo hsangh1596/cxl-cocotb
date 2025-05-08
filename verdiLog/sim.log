@@ -1,0 +1,17 @@
+Command: /home/hsh/cocotb/cmss_top/sim_build/simv +define+COCOTB_SIM=1 -full64 -sml=verdi +fsdb+gate=off -ucli2Proc -ucli -l /home/hsh/cocotb/cmss_top/verdiLog/sim.log
+Warning-[RT_UO] Unsupported option
+  Unsupported option '-full64' is ignored
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version V-2023.12-SP2_Full64; Runtime version V-2023.12-SP2_Full64;  Mar 19 17:17 2025
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:79   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Chronologic Simulation VCS Release version V-2023.12-SP2_Full64
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /home/hsh/.local/lib/python3.10/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1742372279
+     0.00ns ERROR    cocotb                             Environment variable MODULE, which defines the module(s) to execute, is not defined.
+$finish at simulation time                    0
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ps
+CPU Time:      0.130 seconds;       Data structure size:   0.6Mb
+Wed Mar 19 17:17:59 2025

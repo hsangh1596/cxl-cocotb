@@ -1,0 +1,11 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1740543259" />
+    <testcase name="run_test_read_words_001" classname="test_axi_pcie" file="/home/peaceyh1/.local/lib/python3.9/site-packages/cocotb/regression.py" lineno="727" time="5.67770528793335" sim_time_ns="27988.0" ratio_time="4929.456282185344">
+      <failure message="Test failed with RANDOM_SEED=1740543259" />
+    </testcase>
+    <testcase name="run_test_write_words_001" classname="test_axi_pcie" file="/home/peaceyh1/.local/lib/python3.9/site-packages/cocotb/regression.py" lineno="727" time="0" sim_time_ns="0" ratio_time="nan">
+      <failure message="Test failed with RANDOM_SEED=1740543259" />
+    </testcase>
+  </testsuite>
+</testsuites>

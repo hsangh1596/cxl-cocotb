@@ -1,0 +1,81 @@
+Magic 271485
+Revision Verdi_V-2023.12-SP2-1
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 25 1619 503 275 65
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/dumps/core_axi.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 0.000000 48984.208607
+cursor 0.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 9
+; marker line index
+markerPos 27
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+activeDirFile "" "/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top/dumps/core_axi.fsdb"
+addSignal -h 15 /CMSS_TOP_WRAPPER/core_r_if/areset_n
+addSignal -h 15 -UNSIGNED -UDEC -holdScope count[31:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope last_count[31:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rdata[255:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rid[4:0]
+addSignal -h 15 -holdScope rlast
+addSignal -h 15 -holdScope rready
+addSignal -h 15 -UNSIGNED -HEX -holdScope rresp[1:0]
+addSignal -h 15 -holdScope rvalid
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/out_fifo_empty
+addSignal -h 15 -UNSIGNED -HEX /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/u_out_fifo/wrptr_n[2:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rdptr_n[2:0]
+addSignal -h 15 -holdScope wren_i
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/mem_rdata_valid
+addSignal -h 15 -holdScope mem_fifo_wr
+addSignal -h 15 -holdScope mem_rdata_valid
+addSignal -h 15 -holdScope mem_rden
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_core_r/rd_if/req
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/target_req
+addSignal -h 15 -holdScope target_req
+addSignal -h 15 -holdScope ctrl_fifo_empty
+addSignal -h 15 /CMSS_TOP_WRAPPER/u_cmss/u_cache/u_d2h_data_ctrl/u_fifo/empty
+addSignal -h 15 -holdScope empty_n
+addSignal -h 15 -UNSIGNED -HEX -holdScope wrptr_n[6:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope rdptr_n[6:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope wrptr[6:0]
+addSignal -h 15 -holdScope wren_i
+addGroup "G2"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+

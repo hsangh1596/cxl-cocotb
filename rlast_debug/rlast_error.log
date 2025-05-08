@@ -1,0 +1,362 @@
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top'
+rm -f results.xml
+MODULE=test_cmss_top TESTCASE= TOPLEVEL=CMSS_TOP_WRAPPER TOPLEVEL_LANG=verilog \
+ sim_build/simv +define+COCOTB_SIM=1  -full64  
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
+
+Warning-[RT_UO] Unsupported option
+  Unsupported option '-full64' is ignored
+
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version V-2023.12-SP2_Full64; Runtime version V-2023.12-SP2_Full64;  Feb 27 17:52 2025
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:79   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Chronologic Simulation VCS Release version V-2023.12-SP2_Full64
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /home/peaceyh1/.local/lib/python3.10/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1740646335
+     0.00ns INFO     cocotb.regression                  Found test test_cmss_top.run_test_read_words_001
+     0.00ns INFO     cocotb.regression                  running run_test_read_words_001 (1/1)
+                                                          Automatically generated test
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       AXI master (write)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       cocotbext-axi version 0.1.24
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Copyright (c) 2020 Alex Forencich
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       AXI master configuration:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Address width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         ID width: 5 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Byte size: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Data width: 256 bits (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Max burst size: 5 (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Max burst length: 256 cycles (8192 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       AXI master signals:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awaddr width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awburst width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awcache width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awid width: 5 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awlen width: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awlock: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awprot width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awqos width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awregion width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awsize width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awuser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         awvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         wdata width: 256 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         wlast width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         wready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         wstrb width: 32 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         wuser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         wvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         bid width: 5 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         bready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         bresp width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         buser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         bvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       AXI master (read)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       cocotbext-axi version 0.1.24
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Copyright (c) 2020 Alex Forencich
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       AXI master configuration:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Address width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         ID width: 5 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Byte size: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Data width: 256 bits (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Max burst size: 5 (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         Max burst length: 256 cycles (8192 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       AXI master signals:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         araddr width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arburst width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arcache width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arid width: 5 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arlen width: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arlock: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arprot width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arqos width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arregion width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arsize width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         aruser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         arvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         rdata width: 256 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         rid width: 5 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         rlast width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         rready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         rresp width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         ruser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core         rvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        AXI slave model (write)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        cocotbext-axi version 0.1.24
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Copyright (c) 2021 Alex Forencich
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        AXI slave model configuration:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          Address width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          ID width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          Byte size: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          Data width: 256 bits (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        AXI slave model signals:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awaddr width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awburst width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awcache width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awlen width: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awlock: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awprot width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awqos width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awregion width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awsize width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awuser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          awvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          wdata width: 256 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          wlast width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          wready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          wstrb width: 32 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          wuser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          wvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          bid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          bready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          bresp width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          buser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          bvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        AXI slave model (read)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        cocotbext-axi version 0.1.24
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Copyright (c) 2021 Alex Forencich
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        AXI slave model configuration:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          Address width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          ID width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          Byte size: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          Data width: 256 bits (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        AXI slave model signals:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          araddr width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arburst width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arcache width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arlen width: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arlock: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arprot width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arqos width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arregion width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arsize width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          aruser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          arvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          rdata width: 256 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          rid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          rlast width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          rready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          rresp width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          ruser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem          rvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       AXI slave model (write)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       cocotbext-axi version 0.1.24
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Copyright (c) 2021 Alex Forencich
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       AXI slave model configuration:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         Address width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         ID width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         Byte size: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         Data width: 256 bits (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       AXI slave model signals:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awaddr width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awburst width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awcache width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awlen width: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awlock: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awprot width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awqos width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awregion width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awsize width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awuser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         awvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         wdata width: 256 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         wlast width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         wready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         wstrb width: 32 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         wuser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         wvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         bid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         bready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         bresp width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         buser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         bvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       AXI slave model (read)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       cocotbext-axi version 0.1.24
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Copyright (c) 2021 Alex Forencich
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       AXI slave model configuration:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         Address width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         ID width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         Byte size: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         Data width: 256 bits (32 bytes)
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       AXI slave model signals:
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         araddr width: 64 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arburst width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arcache width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arlen width: 8 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arlock: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arprot width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arqos width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arregion width: 4 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arsize width: 3 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         aruser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         arvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         rdata width: 256 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         rid width: 6 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         rlast width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         rready width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         rresp width: 2 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         ruser: not present
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2         rvalid width: 1 bits
+     0.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+*Verdi* Loading libsscore_vcs202312.so
+FSDB Dumper for VCS, Release Verdi_V-2023.12-SP2-1, Linux x86_64/64bit, 07/15/2024
+(C) 1996 - 2024 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'novas.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CPI_RX_BUFFER.sv", 48: CMSS_TOP_WRAPPER.u_cmss.u_mem.u_m2s_rwd_body_buffer.unnamed$$_0: started at 0ps failed at 0ps
+	Offending '(((protocol_id_i == PROTOCOL_ID) && (vc_id_i == VC_ID)) && (shared_credit_i == 1'b0))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CPI_RX_BUFFER.sv", 48: CMSS_TOP_WRAPPER.u_cmss.u_mem.u_m2s_rwd_hdr_buffer.unnamed$$_0: started at 0ps failed at 0ps
+	Offending '(((protocol_id_i == PROTOCOL_ID) && (vc_id_i == VC_ID)) && (shared_credit_i == 1'b0))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CPI_RX_BUFFER.sv", 48: CMSS_TOP_WRAPPER.u_cmss.u_mem.u_m2s_req_buffer.unnamed$$_0: started at 0ps failed at 0ps
+	Offending '(((protocol_id_i == PROTOCOL_ID) && (vc_id_i == VC_ID)) && (shared_credit_i == 1'b0))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MD_BUFFER.sv", 158: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_metadata_buffer.wr_ack_conflict_check: started at 0ps failed at 0ps
+	Offending '(!(wr0_if.req && wr1_if.req))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_AR_CTRL.sv", 155: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_ar.valid_credit: started at 0ps failed at 0ps
+	Offending '(!((~d2h_req_credit[15]) & d2h_req_credit_n[15]))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_AR_CTRL.sv", 162: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_ar.protocol_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_req_rxcrd_if.req_rxcrd_valid & (d2h_req_rxcrd_if.req_rxcrd_protocol_id != CPI_PKG::CPI_PROTOCOL_ID_UP_CACHE)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_AR_CTRL.sv", 167: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_ar.vc_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_req_rxcrd_if.req_rxcrd_valid & (d2h_req_rxcrd_if.req_rxcrd_vc_id != CPI_PKG::CPI_VC_ID_UP_CACHE)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_AR_CTRL.sv", 172: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_ar.shared_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_req_rxcrd_if.req_rxcrd_valid & (d2h_req_rxcrd_if.req_rxcrd_shared != 1'b0)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_R_CTRL.sv", 433: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_r.wdata_check: started at 0ps failed at 0ps
+	Offending '(!((aligned_rch_valid && (axi_ctxt_rd_if.rdata.core_rw == CMSS_PKG::CMSS_AXI4_AW)) && (aligned_rch_entry.rfirst & (!aligned_rch_entry.rlast))))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_MEM_W_CTRL.sv", 213: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_mem_w.rdata_conflict_check: started at 0ps failed at 0ps
+	Offending '(!(wdata_rd_if.data_valid && metadata_rd_if.data_valid))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv", 62: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_d2h_data_ctrl.valid_credit: started at 0ps failed at 0ps
+	Offending '(!((~d2h_credit[15]) & d2h_credit_n[15]))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv", 69: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_d2h_data_ctrl.protocol_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_data_if.data_rxcrd_valid & (d2h_data_if.data_rxcrd_protocol_id != CPI_PKG::CPI_PROTOCOL_ID_UP_CACHE)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv", 74: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_d2h_data_ctrl.vc_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_data_if.data_rxcrd_valid & (d2h_data_if.data_rxcrd_vc_id != CPI_PKG::CPI_VC_ID_UP_CACHE)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv", 79: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_d2h_data_ctrl.shared_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_data_if.data_rxcrd_valid & (d2h_data_if.data_rxcrd_shared != 1'b0)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv", 222: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_d2h_data_ctrl.ctrl_ready_check: started at 0ps failed at 0ps
+	Offending '(hostw_d2h_data_ctrl_if.ready == 1'b1)'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_H2D_DATA_CTRL.sv", 60: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_h2d_data_ctrl.valid_credit: started at 0ps failed at 0ps
+	Offending '(!((~d2h_credit[15]) & d2h_credit_n[15]))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_H2D_DATA_CTRL.sv", 67: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_h2d_data_ctrl.protocol_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_rsp_if.rsp_rxcrd_valid & (d2h_rsp_if.rsp_rxcrd_protocol_id != CPI_PKG::CPI_PROTOCOL_ID_UP_CACHE)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_H2D_DATA_CTRL.sv", 72: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_h2d_data_ctrl.vc_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_rsp_if.rsp_rxcrd_valid & (d2h_rsp_if.rsp_rxcrd_vc_id != CPI_PKG::CPI_VC_ID_UP_CACHE)))'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_H2D_DATA_CTRL.sv", 77: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_h2d_data_ctrl.shared_check: started at 0ps failed at 0ps
+	Offending '(!(d2h_rsp_if.rsp_rxcrd_valid & (d2h_rsp_if.rsp_rxcrd_shared != 1'b0)))'
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset asserted
+     2.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+     6.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem2       Reset de-asserted
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv", 222: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_d2h_data_ctrl.ctrl_ready_check: started at 6000ps failed at 6000ps
+	Offending '(hostw_d2h_data_ctrl_if.ready == 1'b1)'
+"/home/peaceyh1/cocotb/cocotb_cmss_top/design/sverilog/CMSS_CACHE_D2H_DATA_CTRL.sv", 222: CMSS_TOP_WRAPPER.u_cmss.u_cache.u_d2h_data_ctrl.ctrl_ready_check: started at 8000ps failed at 8000ps
+	Offending '(hostw_d2h_data_ctrl_if.ready == 1'b1)'
+    10.00ns INFO     cocotb.tb                          length 1, offset 0
+    10.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Read start addr: 0x00001000 arid: 0x0 prot: AxiProt.NONSECURE
+    10.00ns INFO     cocotb.CMSS_TOP_WRAPPER.core       Read burst start arid: 0x0 araddr: 0x00001000 arlen: 0 arsize: 5 arprot: AxiProt.NONSECURE
+    18.00ns INFO     cocotb.CMSS_TOP_WRAPPER.mem        Read burst arid: 0x0 araddr: 0x00002000 arlen: 2 arsize: 5 arprot: AxiProt.NONSECURE
+    18.00ns DEBUG    cocotb.CMSS_TOP_WRAPPER.mem        Read word awid: 0x0 addr: 0x00002000 data: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    18.00ns DEBUG    cocotb.CMSS_TOP_WRAPPER.mem        Read word awid: 0x0 addr: 0x00002020 data: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    20.00ns DEBUG    cocotb.CMSS_TOP_WRAPPER.mem        Read word awid: 0x0 addr: 0x00002040 data: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+    38.00ns INFO     ..ask 88.TagContext._process_queue Test stopped by this forked coroutine
+    38.00ns INFO     cocotb.regression                  run_test_read_words_001 failed
+                                                        Traceback (most recent call last):
+                                                          File "/home/peaceyh1/.local/lib/python3.10/site-packages/cocotbext/axi/axi_master.py", line 148, in _process_queue
+                                                            await self._manager._process(self, cmd)
+                                                          File "/home/peaceyh1/.local/lib/python3.10/site-packages/cocotbext/axi/axi_master.py", line 982, in _process_read_resp_id
+                                                            assert int(r.rlast), "missing rlast at end of burst"
+                                                        AssertionError: missing rlast at end of burst
+                                                        assert 0
+                                                         +  where 0 = int(0)
+                                                         +    where 0 = AxiRTransaction(rid=0, rdata=0, rlast=0, rresp=0, ruser=0).rlast
+    38.00ns INFO     cocotb.regression                  ***********************************************************************************************
+                                                        ** TEST                                   STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        ***********************************************************************************************
+                                                        ** test_cmss_top.run_test_read_words_001   FAIL          38.00           0.20        192.26  **
+                                                        ***********************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0                          38.00           0.29        130.60  **
+                                                        ***********************************************************************************************
+                                                        
+$finish at simulation time                38001
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 38001 ps
+CPU Time:      0.470 seconds;       Data structure size:   8.6Mb
+Thu Feb 27 17:52:15 2025
+make[1]: Leaving directory '/home/peaceyh1/cocotb/cocotb_cmss_top/tests/cmss_top'
