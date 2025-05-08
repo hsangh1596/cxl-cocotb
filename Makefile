@@ -40,7 +40,7 @@ MODULE   = test_cmss_top
 #VERILOG_SOURCES += $(PWD)/test_axi.v
 FILELISTS += ${CMSS_HOME}/design/filelist.f
 
-#yhyang:COMPILE_ARGS += +define+DEVEL_CXL
+COMPILE_ARGS += +define+DEVEL_CXL
 #COMPILE_ARGS += +define+DEVEL_CXL
 
 include $(shell cocotb-config --makefiles)/Makefile.sim

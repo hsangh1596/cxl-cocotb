@@ -110,6 +110,116 @@ class TB_AXI:
         #self.set_backpressure_generator(backpressure_inserter)
         None
 
+from cocotbext.apb import ApbMaster
+from cocotbext.apb import Apb3Bus
+from cocotbext.apb import ApbMonitor
+def returned_val(read_op):
+    return int.from_bytes(read_op, byteorder='little')
+
+class reg_map_c:
+    def __init__(self):
+        self.reg_map = {}
+        self.reg_map["cache_apb"] = {}
+        self.reg_map["cache_apb"][0x0000] = {"name":"VERSION", "addr":0x0000, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x0100] = {"name":"START_ADDR_L", "addr":0x0100, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x0104] = {"name":"START_ADDR_H", "addr":0x0104, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x0108] = {"name":"END_ADDR_L", "addr":0x0108, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x010c] = {"name":"END_ADDR_H", "addr":0x010c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x0200] = {"name":"CMD", "addr":0x0200, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x0204] = {"name":"STATUS", "addr":0x0204, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+
+        self.reg_map["cache_apb"][0x1000] = {"name":"DBG_FIFO[0]", "addr":0x1000, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1004] = {"name":"DBG_FIFO[1]", "addr":0x1004, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1008] = {"name":"DBG_FIFO[2]", "addr":0x1008, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x100c] = {"name":"DBG_FIFO[3]", "addr":0x100c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1010] = {"name":"DBG_FIFO[4]", "addr":0x1010, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1014] = {"name":"DBG_FIFO[5]", "addr":0x1014, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1018] = {"name":"DBG_FIFO[6]", "addr":0x1018, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x101c] = {"name":"DBG_FIFO[7]", "addr":0x101c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+
+        self.reg_map["cache_apb"][0x1400] = {"name":"DBG_NORMAL_CNT[0]", "addr":0x1400, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1404] = {"name":"DBG_NORMAL_CNT[1]", "addr":0x1404, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1408] = {"name":"DBG_NORMAL_CNT[2]", "addr":0x1408, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x140c] = {"name":"DBG_NORMAL_CNT[3]", "addr":0x140c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1410] = {"name":"DBG_NORMAL_CNT[4]", "addr":0x1410, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1414] = {"name":"DBG_NORMAL_CNT[5]", "addr":0x1414, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1418] = {"name":"DBG_NORMAL_CNT[6]", "addr":0x1418, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x141c] = {"name":"DBG_NORMAL_CNT[7]", "addr":0x141c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+
+        self.reg_map["cache_apb"][0x1800] = {"name":"DBG_SATUR_CNT[0]", "addr":0x1800, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1804] = {"name":"DBG_SATUR_CNT[1]", "addr":0x1804, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1808] = {"name":"DBG_SATUR_CNT[2]", "addr":0x1808, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x180c] = {"name":"DBG_SATUR_CNT[3]", "addr":0x180c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1810] = {"name":"DBG_SATUR_CNT[4]", "addr":0x1810, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1814] = {"name":"DBG_SATUR_CNT[5]", "addr":0x1814, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x1818] = {"name":"DBG_SATUR_CNT[6]", "addr":0x1818, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+        self.reg_map["cache_apb"][0x181c] = {"name":"DBG_SATUR_CNT[7]", "addr":0x181c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
+#TODO:    def __reset_reg(self, reg):
+#TODO:
+#TODO:    def __reset_reg_blk(self, reg_blk):
+#TODO:        regs = self.reg_map[reg_blk]
+#TODO:        for i in regs:
+#TODO:            __reset_reg(i)
+
+def reg_cmp(reg_blk, addr, data):
+    if addr not in reg_blk:
+        return True
+    if (reg_blk[addr]["value"] & reg_blk[addr]["mask"]) == (data & reg_blk[addr]["mask"]):
+        return True
+    else:
+        return False
+
+
+class TB_APB:
+    def __init__(self, dut):
+        self.log = logging.getLogger("cocotb.tb")
+        self.log.setLevel(logging.DEBUG)
+        #yhyang:self.regwidth = int(dut.REGWIDTH)
+        #yhyang:self.n_regs   = int(dut.N_REGS)
+        self.regwidth = 32
+        self.n_regs   = 32
+        self.mask = (2 ** self.regwidth) - 1
+        self.incr = int(self.regwidth/8)
+        #yhyang:self.cr = ClkReset(dut, period, reset_sense=reset_sense, resetname="preset")
+        self.dut = dut
+        cocotb.start_soon(Clock(dut.pclk, 2, units="ns").start())
+        
+        clk_name="pclk"
+
+        cache_apb_prefix="cache"
+        self.cache_apb_bus = Apb3Bus.from_prefix(dut, cache_apb_prefix)
+        self.cache_apb_intf = ApbMaster(self.cache_apb_bus, getattr(dut, clk_name))
+        self.cache_apb_mon = ApbMonitor(self.cache_apb_bus, getattr(dut, clk_name))
+        self.cache_apb_mon.enable_logging()
+
+        mem_apb_prefix="mem"
+        self.mem_apb_bus = Apb3Bus.from_prefix(dut, mem_apb_prefix)
+        self.mem_apb_intf = ApbMaster(self.mem_apb_bus, getattr(dut, clk_name))
+        self.mem_apb_mon = ApbMonitor(self.mem_apb_bus, getattr(dut, clk_name))
+        self.mem_apb_mon.enable_logging()
+
+        cxl_apb_prefix="cxl"
+        self.cxl_apb_bus = Apb3Bus.from_prefix(dut, cxl_apb_prefix)
+        self.cxl_apb_intf = ApbMaster(self.cxl_apb_bus, getattr(dut, clk_name))
+        self.cxl_apb_mon = ApbMonitor(self.cxl_apb_bus, getattr(dut, clk_name))
+        self.cxl_apb_mon.enable_logging()
+
+        reg_map_inst = reg_map_c()
+        self.cache_apb_reg_blk = reg_map_inst.reg_map["cache_apb"]
+
+    async def cycle_reset(self):
+        self.dut.preset.setimmediatevalue(0)
+        await RisingEdge(self.dut.pclk)
+        await RisingEdge(self.dut.pclk)
+        self.dut.preset.value = 1
+        await RisingEdge(self.dut.pclk)
+        await RisingEdge(self.dut.pclk)
+        self.dut.preset.value = 0
+        await RisingEdge(self.dut.pclk)
+        await RisingEdge(self.dut.pclk)
+
+    def init(self):
+        None
 
 async def axi_random_access(dut, idle_inserter=None, backpressure_inserter=None, size=None):
     #yhyang:tb = TB_APB(dut, reset_sense=1)
@@ -186,16 +296,11 @@ async def axi_random_access(dut, idle_inserter=None, backpressure_inserter=None,
 
         #golden_value[addr] = test_data
         random_arcache = random.choice(ARCACHE_VALUES)
-        # await tb_axi.axi_master.read(addr, length, size=size, cache=random_arcache)
+        #await tb_axi.axi_master.read(addr, length, size=size, cache=random_arcache)
         await tb_axi.axi_master.read(addr, length, size=size, cache=ARCACHE_DEVICE_NON_BUFFERABLE)
         #await tb_axi.axi_master.read(addr, length, size=size, cache=ARCACHE_WRITE_BACK_READ_AND_WRITE_ALLOC)
 
         #await Timer(12, 'ns')
-        #safe_access:try:
-        #safe_access:    await with_timeout(tb_axi.axi_master.write(addr, test_data, size=size), 1, 'us')
-        #safe_access:except:
-        #safe_access:    log.error("[YH_DEBUG] Time-out!!!")
-        #safe_access:    break
 
     await RisingEdge(dut.aclk)
     await Timer(random.randint(1, 2), 'us')
@@ -507,149 +612,6 @@ from cocotb import test
 
 #yhyang:from interfaces.clkrst import ClkReset
 
-from cocotbext.apb import ApbMaster
-from cocotbext.apb import Apb3Bus
-from cocotbext.apb import ApbMonitor
-def returned_val(read_op):
-    return int.from_bytes(read_op, byteorder='little')
-
-class reg_map_c:
-    def __init__(self):
-        self.reg_map = {}
-        self.reg_map["cache_apb"] = {}
-        self.reg_map["cache_apb"][0x0000] = {"name":"VERSION", "addr":0x0000, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x0100] = {"name":"START_ADDR_L", "addr":0x0100, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x0104] = {"name":"START_ADDR_H", "addr":0x0104, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x0108] = {"name":"END_ADDR_L", "addr":0x0108, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x010c] = {"name":"END_ADDR_H", "addr":0x010c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x0200] = {"name":"CMD", "addr":0x0200, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x0204] = {"name":"STATUS", "addr":0x0204, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-
-        self.reg_map["cache_apb"][0x1000] = {"name":"DBG_FIFO[0]", "addr":0x1000, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1004] = {"name":"DBG_FIFO[1]", "addr":0x1004, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1008] = {"name":"DBG_FIFO[2]", "addr":0x1008, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x100c] = {"name":"DBG_FIFO[3]", "addr":0x100c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1010] = {"name":"DBG_FIFO[4]", "addr":0x1010, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1014] = {"name":"DBG_FIFO[5]", "addr":0x1014, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1018] = {"name":"DBG_FIFO[6]", "addr":0x1018, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x101c] = {"name":"DBG_FIFO[7]", "addr":0x101c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-
-        self.reg_map["cache_apb"][0x1400] = {"name":"DBG_NORMAL_CNT[0]", "addr":0x1400, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1404] = {"name":"DBG_NORMAL_CNT[1]", "addr":0x1404, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1408] = {"name":"DBG_NORMAL_CNT[2]", "addr":0x1408, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x140c] = {"name":"DBG_NORMAL_CNT[3]", "addr":0x140c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1410] = {"name":"DBG_NORMAL_CNT[4]", "addr":0x1410, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1414] = {"name":"DBG_NORMAL_CNT[5]", "addr":0x1414, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1418] = {"name":"DBG_NORMAL_CNT[6]", "addr":0x1418, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x141c] = {"name":"DBG_NORMAL_CNT[7]", "addr":0x141c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-
-        self.reg_map["cache_apb"][0x1800] = {"name":"DBG_SATUR_CNT[0]", "addr":0x1800, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1804] = {"name":"DBG_SATUR_CNT[1]", "addr":0x1804, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1808] = {"name":"DBG_SATUR_CNT[2]", "addr":0x1808, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x180c] = {"name":"DBG_SATUR_CNT[3]", "addr":0x180c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1810] = {"name":"DBG_SATUR_CNT[4]", "addr":0x1810, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1814] = {"name":"DBG_SATUR_CNT[5]", "addr":0x1814, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x1818] = {"name":"DBG_SATUR_CNT[6]", "addr":0x1818, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-        self.reg_map["cache_apb"][0x181c] = {"name":"DBG_SATUR_CNT[7]", "addr":0x181c, "reset_val":0x0, "value":0x0, "mask":0xffffffff}
-#TODO:    def __reset_reg(self, reg):
-#TODO:
-#TODO:    def __reset_reg_blk(self, reg_blk):
-#TODO:        regs = self.reg_map[reg_blk]
-#TODO:        for i in regs:
-#TODO:            __reset_reg(i)
-
-def reg_cmp(reg_blk, addr, data):
-    if addr not in reg_blk:
-        return True
-    if (reg_blk[addr]["value"] & reg_blk[addr]["mask"]) == (data & reg_blk[addr]["mask"]):
-        return True
-    else:
-        return False
-
-
-class TB_APB:
-    def __init__(self, dut):
-        self.log = logging.getLogger("cocotb.tb")
-        self.log.setLevel(logging.DEBUG)
-        #yhyang:self.regwidth = int(dut.REGWIDTH)
-        #yhyang:self.n_regs   = int(dut.N_REGS)
-        self.regwidth = 32
-        self.n_regs   = 32
-        self.mask = (2 ** self.regwidth) - 1
-        self.incr = int(self.regwidth/8)
-        #yhyang:self.cr = ClkReset(dut, period, reset_sense=reset_sense, resetname="preset")
-        self.dut = dut
-        cocotb.start_soon(Clock(dut.pclk, 2, units="ns").start())
-        
-        clk_name="pclk"
-
-        cache_apb_prefix="cache"
-        self.cache_apb_bus = Apb3Bus.from_prefix(dut, cache_apb_prefix)
-        self.cache_apb_intf = ApbMaster(self.cache_apb_bus, getattr(dut, clk_name))
-        self.cache_apb_mon = ApbMonitor(self.cache_apb_bus, getattr(dut, clk_name))
-        self.cache_apb_mon.enable_logging()
-
-        mem_apb_prefix="mem"
-        self.mem_apb_bus = Apb3Bus.from_prefix(dut, mem_apb_prefix)
-        self.mem_apb_intf = ApbMaster(self.mem_apb_bus, getattr(dut, clk_name))
-        self.mem_apb_mon = ApbMonitor(self.mem_apb_bus, getattr(dut, clk_name))
-        self.mem_apb_mon.enable_logging()
-
-        cxl_apb_prefix="cxl"
-        self.cxl_apb_bus = Apb3Bus.from_prefix(dut, cxl_apb_prefix)
-        self.cxl_apb_intf = ApbMaster(self.cxl_apb_bus, getattr(dut, clk_name))
-        self.cxl_apb_mon = ApbMonitor(self.cxl_apb_bus, getattr(dut, clk_name))
-        self.cxl_apb_mon.enable_logging()
-
-        reg_map_inst = reg_map_c()
-        self.cache_apb_reg_blk = reg_map_inst.reg_map["cache_apb"]
-
-
-
-
-        #from_axi:self.dut = dut
-
-        #from_axi:self.log = logging.getLogger("cocotb.tb")
-        #from_axi:self.log.setLevel(logging.DEBUG)
-
-        #from_axi:cocotb.start_soon(Clock(dut.pclk, 2, units="ns").start())
-
-        #from_axi:self.apb_master = apb.APBMasterDriver(dut, "APB", dut.pclk, dut.preset)
-
-    #TODO:def set_idle_generator(self, generator=None):
-    #TODO:    if generator:
-    #TODO:        self.axi_master.write_if.aw_channel.set_pause_generator(generator())
-    #TODO:        self.axi_master.write_if.w_channel.set_pause_generator(generator())
-    #TODO:        self.axi_master.read_if.ar_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram1.write_if.b_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram1.read_if.r_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram2.write_if.b_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram2.read_if.r_channel.set_pause_generator(generator())
-
-    #TODO:def set_backpressure_generator(self, generator=None):
-    #TODO:    if generator:
-    #TODO:        self.axi_master.write_if.b_channel.set_pause_generator(generator())
-    #TODO:        self.axi_master.read_if.r_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram1.write_if.aw_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram1.write_if.w_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram1.read_if.ar_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram2.write_if.aw_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram2.write_if.w_channel.set_pause_generator(generator())
-    #TODO:        self.axi_ram2.read_if.ar_channel.set_pause_generator(generator())
-
-    async def cycle_reset(self):
-        self.dut.preset.setimmediatevalue(0)
-        await RisingEdge(self.dut.pclk)
-        await RisingEdge(self.dut.pclk)
-        self.dut.preset.value = 1
-        await RisingEdge(self.dut.pclk)
-        await RisingEdge(self.dut.pclk)
-        self.dut.preset.value = 0
-        await RisingEdge(self.dut.pclk)
-        await RisingEdge(self.dut.pclk)
-
-    def init(self):
-        None
 
 async def test_apb_basic(dut):
     #yhyang:tb = TB_APB(dut, reset_sense=1)

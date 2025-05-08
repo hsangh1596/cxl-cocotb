@@ -3,7 +3,7 @@ from cocotb_bus.drivers import BusDriver
 from cocotb_bus.monitors import BusMonitor
 from queue import Queue
 from cocotb.binary import BinaryValue
-from pack import apply_crc_weights, apply_crc_weights_int
+from pack import apply_crc
 from cxl_pkg import *
 
 
@@ -72,7 +72,5 @@ async def process_flit_queue(pipe_driver, flit_queue):
                 flit_data = BinaryValue("X" * 528)
                 pipe_driver.append((flit_data, 0))
             else:
-                #print("type(flit_payload.slot3):", type(flit.slot3))
-                flit_data = apply_crc_weights_int(flit.pack_int(), CXL_CRC_COEFF)
-                #flit_data = int.from_bytes(flit_data, byteorder="big")
+                flit_data = apply_crc(flit.pack(), CXL_CRC_COEFF)
                 pipe_driver.append((flit_data, 1))

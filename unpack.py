@@ -9,25 +9,34 @@ class Unpack:
         self.s2m_drs_queue          = Queue()
         self.s2m_ndr_queue          = Queue()
         self.d2h_data_slot_queue    = d2h_data_slot_queue
-
         self.flit_input_queue       = flit_input_queue
+        self.rollover_cnt           = {"value": 0}
+        
 
         self.flit_parser    = CXLFlitParser(
             self.d2h_req_queue, self.d2h_rsp_queue, self.d2h_data_queue, self.s2m_drs_queue, self.s2m_ndr_queue,
             self.d2h_data_slot_queue
         )
         self.unpack_slot_h  = UnpackSlotH(
-            self.d2h_req_queue, self.d2h_rsp_queue, self.d2h_data_queue, self.s2m_drs_queue, self.s2m_ndr_queue
+            self.d2h_req_queue, self.d2h_rsp_queue, self.d2h_data_queue, self.s2m_drs_queue, self.s2m_ndr_queue,
+            self.rollover_cnt
         )
         self.unpack_slot_g  = UnpackSlotG(
             self.d2h_req_queue, self.d2h_rsp_queue, self.d2h_data_queue, self.s2m_drs_queue, self.s2m_ndr_queue,
-            self.d2h_data_slot_queue
+            self.d2h_data_slot_queue, self.rollover_cnt
         )
 
     async def run_unpacker(self):
         while True:
             flit_data = await self.flit_input_queue.get()
-            await self.unpack_flit(flit_data)
+            if self.rollover_cnt["value"] < 4:
+                await self.unpack_flit(flit_data)
+            else:
+                # All-data-flit
+                for i in range(4):
+                    shift = (3 - i) * 128  # big-endian 순서
+                    word = (flit_data >> shift) & ((1 << 128) - 1)
+                    await self.d2h_data_slot_queue.put(word)
 
     async def unpack_flit(self, flit_data:bytes):
         slots = await self.flit_parser.parse_flit(flit_data)
@@ -65,17 +74,18 @@ class CXLFlitParser:
         return slots
 
 class UnpackSlotH:
-    def __init__(self, d2h_req_queue, d2h_rsp_queue, d2h_data_queue, s2m_drs_queue, s2m_ndr_queue):
+    def __init__(self, d2h_req_queue, d2h_rsp_queue, d2h_data_queue, s2m_drs_queue, s2m_ndr_queue, rollover_cnt):
         self.d2h_req_queue      = d2h_req_queue
         self.d2h_rsp_queue      = d2h_rsp_queue
         self.d2h_data_queue     = d2h_data_queue
         self.s2m_drs_queue      = s2m_drs_queue
         self.s2m_ndr_queue      = s2m_ndr_queue
+        self.rollover_cnt       = rollover_cnt
 
     async def unpack_slot(self, slot_type, slot_data):
         if slot_type == 0:  # H0
             slot        = CXL_UPFLIT_SLOT_H0.unpack(slot_data)
-            s2m_ndr     =  CXL_FLIT_S2M_NDR_HDR.unpack(slot.s2m_ndr)
+            s2m_ndr     = CXL_FLIT_S2M_NDR_HDR.unpack(slot.s2m_ndr)
             d2h_rsp1    = CXL_FLIT_D2H_RSP_HDR.unpack(slot.d2h_rsp1)
             d2h_rsp0    = CXL_FLIT_D2H_RSP_HDR.unpack(slot.d2h_rsp0)
             d2h_data    = CXL_FLIT_D2H_DATA_HDR.unpack(slot.d2h_data)
@@ -87,15 +97,15 @@ class UnpackSlotH:
             if d2h_rsp0.valid:
                 await self.d2h_rsp_queue.put(d2h_rsp0)
             if d2h_data.valid:
+                self.rollover_cnt["value"] += 4
                 await self.d2h_data_queue.put(d2h_data)
 
         elif slot_type == 1:  # H1
             slot        = CXL_UPFLIT_SLOT_H1.unpack(slot_data)
             d2h_data    = CXL_FLIT_D2H_DATA_HDR.unpack(slot.d2h_data)
             d2h_req     = CXL_FLIT_D2H_REQ_HDR.unpack(slot.d2h_req)
-            #print(slot_data)
-            #print(d2h_data)
             if d2h_data.valid:
+                self.rollover_cnt["value"] += 4
                 await self.d2h_data_queue.put(d2h_data)
             if d2h_req.valid:
                 await self.d2h_req_queue.put(d2h_req)
@@ -150,18 +160,20 @@ class UnpackSlotH:
             assert(0)
             
 class UnpackSlotG:
-    def __init__(self, d2h_req_queue, d2h_rsp_queue, d2h_data_queue, s2m_drs_queue, s2m_ndr_queue, d2h_data_slot_queue):
+    def __init__(self, d2h_req_queue, d2h_rsp_queue, d2h_data_queue, s2m_drs_queue, s2m_ndr_queue, d2h_data_slot_queue
+                , rollover_cnt):
         self.d2h_req_queue          = d2h_req_queue
         self.d2h_rsp_queue          = d2h_rsp_queue
         self.d2h_data_queue         = d2h_data_queue
         self.s2m_drs_queue          = s2m_drs_queue
         self.s2m_ndr_queue          = s2m_ndr_queue
         self.d2h_data_slot_queue    = d2h_data_slot_queue
+        self.rollover_cnt           = rollover_cnt
 
     async def unpack_slot(self, slot_type, slot_data):
         if slot_type == 0:  # G00
             d2h_data_slot = slot_data
-            print(type(slot_data))
+            self.rollover_cnt["value"] -= 1
             await self.d2h_data_slot_queue.put(d2h_data_slot)
 
         elif slot_type == 1:  # G1
@@ -186,6 +198,7 @@ class UnpackSlotG:
             if d2h_rsp.valid:
                 await self.d2h_rsp_queue.put(d2h_rsp)
             if d2h_data.valid:
+                self.rollover_cnt["value"] += 4
                 await self.d2h_data_queue.put(d2h_data)
             if d2h_req.valid:
                 await self.d2h_req_queue.put(d2h_req)

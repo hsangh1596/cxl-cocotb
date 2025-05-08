@@ -32,33 +32,7 @@ def xor_reduce(value: int) -> int:
         value >>= 1
     return result
 
-def apply_crc_weights(payload, crc_coeff):
-    """Apply XOR-tree based CRC on a 512-bit payload (bytes)"""
-    if not isinstance(payload, (bytes, bytearray)):
-        raise TypeError(f"payload must be bytes, but got {type(payload)}")
-    if len(payload) != 64:  # 512 bits = 64 bytes
-        raise ValueError(f"payload must be exactly 64 bytes (512 bits), but got {len(payload)} bytes")
-    if not isinstance(crc_coeff, list):
-        raise TypeError("crc_coeff must be a list of 16 integers (512-bit each)")
-    if len(crc_coeff) != 16:
-        raise ValueError(f"crc_coeff must have exactly 16 elements, but got {len(crc_coeff)}")
-    if not all(isinstance(coeff, int) and 0 <= coeff < (1 << 512) for coeff in crc_coeff):
-        raise TypeError("All elements in crc_coeff must be 512-bit integers")
-
-    payload_int = int.from_bytes(payload, byteorder="big")
-
-    crc_bits = 0
-    for i in range(16):
-        xor_result = xor_reduce(payload_int & crc_coeff[i])  # XOR-tree
-        crc_bits |= (xor_result << (15-i))
-
-    final_flit = (crc_bits << 512) | payload_int  # 528-bit
-
-    final_bytes = final_flit.to_bytes(66, byteorder="big")
-
-    return final_bytes
-
-def apply_crc_weights_int(payload_int: int, crc_coeff) -> int:
+def apply_crc(payload_int: int, crc_coeff) -> int:
     """Apply XOR-tree based CRC on a 512-bit integer payload and return 528-bit integer result"""
     if not isinstance(payload_int, int):
         raise TypeError(f"payload must be int, but got {type(payload_int)}")

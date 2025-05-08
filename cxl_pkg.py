@@ -129,6 +129,17 @@ class CXL_FLIT_H2D_RSP_HDR:
         self.opcode=opcode  # [4:1]
         self.valid=valid  # [0]
 
+    # def pack(self):
+    #     value = (
+    #         (self.rsvd & 0x1) << 31 |
+    #         (self.cqid & 0xFFF) << 19 |
+    #         (self.rsp_pre & 0x3) << 17 |
+    #         (self.rsp_data & 0xFFF) << 5 |
+    #         (self.opcode & 0xF) << 1 |
+    #         (self.valid)
+    #     )
+    #     return struct.pack(">I", value)
+    
     def pack(self):
         value = (
             (self.rsvd & 0x1) << 31 |
@@ -136,23 +147,9 @@ class CXL_FLIT_H2D_RSP_HDR:
             (self.rsp_pre & 0x3) << 17 |
             (self.rsp_data & 0xFFF) << 5 |
             (self.opcode & 0xF) << 1 |
-            (1 if self.valid else 0)  # Ensure valid is stored as 1-bit boolean
-        )
-        return struct.pack(">I", value)
-    
-    def pack_int(self):
-        value = (
-            (self.rsvd & 0x1) << 31 |
-            (self.cqid & 0xFFF) << 19 |
-            (self.rsp_pre & 0x3) << 17 |
-            (self.rsp_data & 0xFFF) << 5 |
-            (self.opcode & 0xF) << 1 |
-            (1 if self.valid else 0)  # Ensure valid is stored as 1-bit boolean
+            (self.valid)
         )
         return value & 0xFFFF_FFFF
-    
-    def pack_bytes(self):
-        return self.rsvd + self.cqid + self.rsp_pre + self.rsp_data + self.opcode + self.valid
 
     @classmethod
     def unpack(cls, data):
@@ -181,6 +178,18 @@ class CXL_FLIT_H2D_DATA_HDR:
         self.cqid=cqid  # [12:1]
         self.valid=valid  # [0]
 
+    # def pack(self):
+    #     value = (
+    #         (self.rsvd & 0xFF) << 16 |
+    #         (self.go_err & 0x1) << 19 |
+    #         (self.poison & 0x1) << 17 |
+    #         (self.chunk_valid & 0x1) << 5 |
+    #         (self.cqid & 0xFFF) << 1 |
+    #         (self.valid)
+    #     )
+    #     packed = struct.pack(">I", value)
+    #     return packed[1:]
+
     def pack(self):
         value = (
             (self.rsvd & 0xFF) << 16 |
@@ -188,24 +197,9 @@ class CXL_FLIT_H2D_DATA_HDR:
             (self.poison & 0x1) << 17 |
             (self.chunk_valid & 0x1) << 5 |
             (self.cqid & 0xFFF) << 1 |
-            (1 if self.valid else 0)  # Ensure valid is stored as 1-bit boolean
-        )
-        packed = struct.pack(">I", value)
-        return packed[1:]
-    
-    def pack_int(self) -> int:
-        value = (
-            (self.rsvd & 0xFF) << 16 |
-            (self.go_err & 0x1) << 19 |
-            (self.poison & 0x1) << 17 |
-            (self.chunk_valid & 0x1) << 5 |
-            (self.cqid & 0xFFF) << 1 |
-            (1 if self.valid else 0)
+            (self.valid)
         )
         return value & 0xFFFFFF
-
-    def pack_bytes(self):
-        return self.rsvd + self.go_err + self.poison + self.chunk_valid + self.cqid + self.valid
 
     @classmethod
     def unpack(cls, data):
@@ -431,31 +425,27 @@ class CXL_DNFLIT_SLOT_H0:
             (self.h2d_rsp & 0xFFFFFFFF) << 64 |
             (self.h2d_req & 0xFFFFFFFFFFFFFFFF)
         )
-        return struct.pack(">QI", (value >> 32) & 0xFFFFFFFFFFFFFFFF, value & 0xFFFFFFFF)
-
-
-    
-
+        return value
 
 @dataclass
 class CXL_DNFLIT_SLOT_H1:
     def __init__(self, rsvd=0, h2d_rsp1=CXL_FLIT_H2D_RSP_HDR, h2d_rsp0=CXL_FLIT_H2D_RSP_HDR
-                 , h2d_data=CXL_FLIT_H2D_DATA_HDR):
+                , h2d_data=CXL_FLIT_H2D_DATA_HDR):
         self.rsvd = rsvd  # 8-bit
         self.h2d_rsp1 = h2d_rsp1  # 32-bit
         self.h2d_rsp0 = h2d_rsp0  # 32-bit
         self.h2d_data = h2d_data  # 24-bit
 
-    def pack(self):
-        value = (
-            (self.rsvd & 0xFF) << 88 |   # 8-bit
-            (self.h2d_rsp1 & 0xFFFFFFFF) << 56 |  # 32-bit
-            (self.h2d_rsp0 & 0xFFFFFFFF) << 24 |  # 32-bit
-            (self.h2d_data & 0xFFFFFF)  # 24-bit
-        )
-        return struct.pack(">QI", (value >> 32) & 0xFFFFFFFFFFFFFFFF, value & 0xFFFFFFFF)
+    # def pack(self):
+    #     value = (
+    #         (self.rsvd & 0xFF) << 88 |   # 8-bit
+    #         (self.h2d_rsp1 & 0xFFFFFFFF) << 56 |  # 32-bit
+    #         (self.h2d_rsp0 & 0xFFFFFFFF) << 24 |  # 32-bit
+    #         (self.h2d_data & 0xFFFFFF)  # 24-bit
+    #     )
+    #     return struct.pack(">QI", (value >> 32) & 0xFFFFFFFFFFFFFFFF, value & 0xFFFFFFFF)
     
-    def pack_int(self):
+    def pack(self):
         value = (
             (self.rsvd & 0xFF) << 88 |   # 8-bit
             (self.h2d_rsp1 & 0xFFFFFFFF) << 56 |  # 32-bit
@@ -480,19 +470,35 @@ class CXL_DNFLIT_SLOT_H2:
 
 @dataclass
 class CXL_DNFLIT_SLOT_H3:
-    h2d_data3: CXL_FLIT_H2D_DATA_HDR  # 24-bit
-    h2d_data2: CXL_FLIT_H2D_DATA_HDR  # 24-bit
-    h2d_data1: CXL_FLIT_H2D_DATA_HDR  # 24-bit
-    h2d_data0: CXL_FLIT_H2D_DATA_HDR  # 24-bit
+    def __init__(
+        self,
+        h2d_data3 = CXL_FLIT_H2D_DATA_HDR(),
+        h2d_data2 = CXL_FLIT_H2D_DATA_HDR(),
+        h2d_data1 = CXL_FLIT_H2D_DATA_HDR(),
+        h2d_data0 = CXL_FLIT_H2D_DATA_HDR()
+    ):
+        self.h2d_data3 = h2d_data3 # 24-bit
+        self.h2d_data2 = h2d_data2 # 24-bit
+        self.h2d_data1 = h2d_data1 # 24-bit
+        self.h2d_data0 = h2d_data0 # 24-bit
+
+    # def pack(self):
+    #     packed_h2d_data3 = self.h2d_data3.pack_int()
+    #     packed_h2d_data2 = self.h2d_data2.pack_int()
+    #     packed_h2d_data1 = self.h2d_data1.pack_int()
+    #     packed_h2d_data0 = self.h2d_data0.pack_int()
+        
+    #     packed_data = packed_h2d_data3 + packed_h2d_data2 + packed_h2d_data1 + packed_h2d_data0
+    #     return packed_data
+    
     def pack(self):
-        
-        packed_h2d_data3 = self.h2d_data3.pack()
-        packed_h2d_data2 = self.h2d_data2.pack()
-        packed_h2d_data1 = self.h2d_data1.pack()
-        packed_h2d_data0 = self.h2d_data0.pack()
-        
-        packed_data = packed_h2d_data3 + packed_h2d_data2 + packed_h2d_data1 + packed_h2d_data0
-        return packed_data
+        value = (
+            (self.h2d_data3.pack() & 0xFFFFFF) << 72 |
+            (self.h2d_data2.pack() & 0xFFFFFF) << 48 |
+            (self.h2d_data1.pack() & 0xFFFFFF) << 24 |
+            (self.h2d_data0.pack() & 0xFFFFFF)
+        )
+        return value & 0xFFFFFFFFFFFFFFFFFFFFFFFF
 
 @dataclass
 class CXL_DNFLIT_SLOT_H4:
@@ -519,27 +525,35 @@ class CXL_DNFLIT_SLOT_G01:
 
 @dataclass
 class CXL_DNFLIT_SLOT_G1:
-    h2d_rsp3: CXL_FLIT_H2D_RSP_HDR  # 32-bit
-    h2d_rsp2: CXL_FLIT_H2D_RSP_HDR  # 32-bit
-    h2d_rsp1: CXL_FLIT_H2D_RSP_HDR  # 32-bit
-    h2d_rsp0: CXL_FLIT_H2D_RSP_HDR  # 32-bit
+    def __init__(
+        self,
+        h2d_rsp3 = CXL_FLIT_H2D_RSP_HDR(),
+        h2d_rsp2 = CXL_FLIT_H2D_RSP_HDR(),
+        h2d_rsp1 = CXL_FLIT_H2D_RSP_HDR(),
+        h2d_rsp0 = CXL_FLIT_H2D_RSP_HDR()
+    ):
+        self.h2d_rsp3 = h2d_rsp3 # 32-bit
+        self.h2d_rsp2 = h2d_rsp2 # 32-bit
+        self.h2d_rsp1 = h2d_rsp1 # 32-bit
+        self.h2d_rsp0 = h2d_rsp0 # 32-bit
 
-    def pack(self):
-        packed_h2d_rsp3 = self.h2d_rsp3.pack()
-        packed_h2d_rsp2 = self.h2d_rsp2.pack()
-        packed_h2d_rsp1 = self.h2d_rsp1.pack()
-        packed_h2d_rsp0 = self.h2d_rsp0.pack()
+    # def pack(self):
+    #     packed_h2d_rsp3 = self.h2d_rsp3.pack()
+    #     packed_h2d_rsp2 = self.h2d_rsp2.pack()
+    #     packed_h2d_rsp1 = self.h2d_rsp1.pack()
+    #     packed_h2d_rsp0 = self.h2d_rsp0.pack()
 
-        packed_data = packed_h2d_rsp3 + packed_h2d_rsp2 + packed_h2d_rsp1 + packed_h2d_rsp0
-        return packed_data
+    #     packed_data = packed_h2d_rsp3 + packed_h2d_rsp2 + packed_h2d_rsp1 + packed_h2d_rsp0
+    #     return packed_data
     
-    def pack_int(self):
-        rsp0 = self.h2d_rsp0.pack_int()
-        rsp1 = self.h2d_rsp1.pack_int()
-        rsp2 = self.h2d_rsp2.pack_int()
-        rsp3 = self.h2d_rsp3.pack_int()
-
-        return (rsp0 << 72) | (rsp1 << 48) | (rsp2 << 24) | rsp3
+    def pack(self):
+        value = (
+            (self.h2d_rsp3.pack() & 0xFFFFFFFF) << 96 |
+            (self.h2d_rsp2.pack() & 0xFFFFFFFF) << 64 |
+            (self.h2d_rsp1.pack() & 0xFFFFFFFF) << 32 |
+            (self.h2d_rsp0.pack() & 0xFFFFFFFF)
+        )
+        return value & 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 
 @dataclass
 class CXL_DNFLIT_SLOT_G2:
@@ -897,8 +911,8 @@ class CXL_FLIT:
 @dataclass
 class CXL_PROTOCOL_FLIT_HDR:
     def __init__(self, data_crd=0, req_crd=0, rsp_crd=0, rsvd2=0,
-                 slot3=0, slot2=0, slot1=0, slot0=0, sz=0, be=0, ak=0, rsvd=0,
-                 flit_type=0):
+                slot3=0, slot2=0, slot1=0, slot0=0, sz=0, be=0, ak=0, rsvd=0,
+                flit_type=0):
         self.data_crd = data_crd  # [31:28]
         self.req_crd = req_crd    # [27:24]
         self.rsp_crd = rsp_crd    # [23:20]
@@ -913,25 +927,25 @@ class CXL_PROTOCOL_FLIT_HDR:
         self.rsvd = rsvd          # [1]
         self.flit_type = flit_type  # [0]
 
-    def pack(self):
-        value = (
-            (self.data_crd & 0xF) << 28 |
-            (self.req_crd & 0xF) << 24 |
-            (self.rsp_crd & 0xF) << 20 |
-            (self.rsvd2 & 0x7) << 17 |
-            (self.slot3 & 0x7) << 14 |
-            (self.slot2 & 0x7) << 11 |
-            (self.slot1 & 0x7) << 8 |
-            (self.slot0 & 0x7) << 5 |
-            (self.sz & 0x1) << 4 |
-            (self.be & 0x1) << 3 |
-            (self.ak & 0x1) << 2 |
-            (self.rsvd & 0x1) << 1 |
-            (self.flit_type & 0x1) << 0
-        )
-        return struct.pack(">I", value)
+    # def pack(self):
+    #     value = (
+    #         (self.data_crd & 0xF) << 28 |
+    #         (self.req_crd & 0xF) << 24 |
+    #         (self.rsp_crd & 0xF) << 20 |
+    #         (self.rsvd2 & 0x7) << 17 |
+    #         (self.slot3 & 0x7) << 14 |
+    #         (self.slot2 & 0x7) << 11 |
+    #         (self.slot1 & 0x7) << 8 |
+    #         (self.slot0 & 0x7) << 5 |
+    #         (self.sz & 0x1) << 4 |
+    #         (self.be & 0x1) << 3 |
+    #         (self.ak & 0x1) << 2 |
+    #         (self.rsvd & 0x1) << 1 |
+    #         (self.flit_type & 0x1) << 0
+    #     )
+    #     return struct.pack(">I", value)
     
-    def pack_int(self):
+    def pack(self):
         value = (
             (self.data_crd & 0xF) << 28 |
             (self.req_crd & 0xF) << 24 |
@@ -969,19 +983,6 @@ class CXL_PROTOCOL_FLIT_HDR:
             flit_type=(value >> 0) & 0x1,
         )
 
-    def check(self):
-        """Check if the header values are valid"""
-        if not (0 <= self.data_crd <= 0xF):
-            print("Invalid data_crd value!")
-            return False
-        if not (0 <= self.req_crd <= 0xF):
-            print("Invalid req_crd value!")
-            return False
-        if not (0 <= self.rsp_crd <= 0xF):
-            print("Invalid rsp_crd value!")
-            return False
-        return True
-
     def __repr__(self):
         return (
             f"CxlProtocolFlitHdr(data_crd={self.data_crd}, req_crd={self.req_crd}, "
@@ -989,10 +990,6 @@ class CXL_PROTOCOL_FLIT_HDR:
             f"slot1={self.slot1}, slot0={self.slot0}, sz={self.sz}, be={self.be}, "
             f"ak={self.ak}, rsvd={self.rsvd}, flit_type={self.flit_type})"
         )
-
-    #def __str__(self):
-    #    return f"FlitHdr: data_crd={self.data_crd}, req_crd={self.req_crd}, rsp_crd={self.rsp_crd}, flit_type={self.flit_type}"
-
 
 @dataclass
 class CXL_PROTOCOL_FLIT_PLD:
@@ -1003,23 +1000,23 @@ class CXL_PROTOCOL_FLIT_PLD:
         self.slot0 = slot0  # 96-bit
         self.flit_hdr = flit_hdr if flit_hdr else CXL_PROTOCOL_FLIT_HDR()  # 32-bit header
 
-    def pack(self):
-        """Pack the structure into a binary format"""
-        return (
-            struct.pack(">QQ", (self.slot3 >> 64) & 0xFFFFFFFFFFFFFFFF, self.slot3 & 0xFFFFFFFFFFFFFFFF) +  # 128-bit
-            struct.pack(">QQ", (self.slot2 >> 64) & 0xFFFFFFFFFFFFFFFF, self.slot2 & 0xFFFFFFFFFFFFFFFF) +  # 128-bit
-            struct.pack(">QQ", (self.slot1 >> 64) & 0xFFFFFFFFFFFFFFFF, self.slot1 & 0xFFFFFFFFFFFFFFFF) +  # 128-bit
-            struct.pack(">I", (self.slot0 >> 64) & 0xFFFFFFFF) + struct.pack(">Q", self.slot0 & 0xFFFFFFFFFFFFFFFF) +  # 96-bit
-            self.flit_hdr.pack()  # 32-bit
-        )
+    # def pack(self):
+    #     """Pack the structure into a binary format"""
+    #     return (
+    #         struct.pack(">QQ", (self.slot3 >> 64) & 0xFFFFFFFFFFFFFFFF, self.slot3 & 0xFFFFFFFFFFFFFFFF) +  # 128-bit
+    #         struct.pack(">QQ", (self.slot2 >> 64) & 0xFFFFFFFFFFFFFFFF, self.slot2 & 0xFFFFFFFFFFFFFFFF) +  # 128-bit
+    #         struct.pack(">QQ", (self.slot1 >> 64) & 0xFFFFFFFFFFFFFFFF, self.slot1 & 0xFFFFFFFFFFFFFFFF) +  # 128-bit
+    #         struct.pack(">I", (self.slot0 >> 64) & 0xFFFFFFFF) + struct.pack(">Q", self.slot0 & 0xFFFFFFFFFFFFFFFF) +  # 96-bit
+    #         self.flit_hdr.pack()  # 32-bit
+    #     )
     
-    def pack_int(self):
+    def pack(self):
         value = (
             (self.slot3 & 0xFFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF) << 384 |
             (self.slot2 & 0xFFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF) << 256 |
             (self.slot1 & 0xFFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FFFF) << 128 |
             (self.slot0 & 0xFFFF_FFFF_FFFF_FFFF_FFFF_FFFF) << 32 |
-            (self.flit_hdr.pack_int())  # 32-bit
+            (self.flit_hdr.pack())  # 32-bit
         )
         return value
     
@@ -1042,31 +1039,6 @@ class CXL_PROTOCOL_FLIT_PLD:
             slot0=(slot0_low << 64) | slot0_high,
             flit_hdr=flit_hdr
         )
-
-    def check(self):
-        """Check if the payload values are valid"""
-        if not (0 <= self.slot3 <= 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF):
-            print("Invalid slot3 value!")
-            return False
-        if not (0 <= self.slot2 <= 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF):
-            print("Invalid slot2 value!")
-            return False
-        if not (0 <= self.slot1 <= 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF):
-            print("Invalid slot1 value!")
-            return False
-        if not (0 <= self.slot0 <= 0xFFFFFFFFFFFFFFFFFFFFFFFF):
-            print("Invalid slot0 value!")
-            return False
-        return True
-
-    #def __repr__(self):
-    #    return (
-    #        f"CxlProtocolFlitPld(slot3={hex(self.slot3)}, slot2={hex(self.slot2)}, "
-    #        f"slot1={hex(self.slot1)}, slot0={hex(self.slot0)}, flit_hdr={self.flit_hdr!r})"
-    #    )
-
-    #def __str__(self):
-    #    return f"Flit Payload: slot3={hex(self.slot3)}, slot2={hex(self.slot2)}, slot1={hex(self.slot1)}, slot0={hex(self.slot0)}, {self.flit_hdr}"
 
 @dataclass
 class CXL_ALL_DATA_FLIT_PLD:

@@ -6,25 +6,11 @@ import random
 from cocotb.binary import BinaryValue
 
 class Counter:
-    rollover_cnt = 0
     h2d_rsp_cnt = 0
     h2d_data_hdr_cnt = 0
 
     @classmethod
-    def get_rollover_cnt(cls):
-        return cls.rollover_cnt
-
-    @classmethod
-    def increment_rollover_cnt(cls, value):
-        cls.rollover_cnt += value
-
-    @classmethod
-    def decrement_rollover_cnt(cls, value):
-        cls.rollover_cnt -= value
-
-    @classmethod
     def reset(cls):
-        cls.rollover_cnt = 0
         cls.h2d_rsp_cnt = 0
         cls.h2d_data_hdr_cnt = 0
 
@@ -81,8 +67,6 @@ class RspGen:
                 addr = req.address * 0x1000
                 await self.h2d_data_addr_queue.put(addr)
                 await self.h2d_data_hdr_queue.put(data_hdr)
-                print("********************************************DEBUG********************************************")
-                print(data_hdr)
 
             elif req.opcode == CXL_D2H_REQ_OPCODE.CXL_D2H_REQ_OPCODE_RD_SHARED.value:
                 rsp = CXL_FLIT_H2D_RSP_HDR(
@@ -202,18 +186,10 @@ class ConstructG1:
                 pass
 
         return slot_g1
-    
-    def pack(self):
-        """pack data"""
-        packed_h2d_rsp3 = self.h2d_rsp3.pack()
-        packed_h2d_rsp2 = self.h2d_rsp2.pack()
-        packed_h2d_rsp1 = self.h2d_rsp1.pack()
-        packed_h2d_rsp0 = self.h2d_rsp0.pack()
 
-        packed_data = packed_h2d_rsp3 + packed_h2d_rsp2 + packed_h2d_rsp1 + packed_h2d_rsp0
-        return packed_data
+def make_data_slot(data_bytes: bytes) -> list[int]:
 
-def make_data_slot(value: int) -> list[int]:
+    value = int.from_bytes(data_bytes, byteorder='little')
     words = []
     for i in range(4):
         # little-endian: LSB first
@@ -231,37 +207,50 @@ def make_data_slot(value: int) -> list[int]:
     return words
 
 class ConstructH3:
-    def __init__(self, h2d_data_hdr_queue):
-        self.h2d_data_hdr_queue = h2d_data_hdr_queue
+    def __init__(self, h2d_data_queue, rollover_data_queue):
+        self.h2d_data_queue = h2d_data_queue
+        self.rollver_data_queue = rollover_data_queue
 
     async def construct_h3(self):
-        slot_h3 = CXL_DNFLIT_SLOT_H3(
-            h2d_data3=CXL_FLIT_H2D_DATA_HDR(),  # 24-bit
-            h2d_data2=CXL_FLIT_H2D_DATA_HDR(),  # 24-bit
-            h2d_data1=CXL_FLIT_H2D_DATA_HDR(),  # 24-bit
-            h2d_data0=CXL_FLIT_H2D_DATA_HDR()   # 24-bit
-        )
+        slot_h3 = CXL_DNFLIT_SLOT_H3()
 
         try:
-            slot_h3.h2d_data0 = self.h2d_data_hdr_queue.get_nowait()
-            Counter.increment_rollover_cnt(4)
+            h2d_data_hdr, h2d_data = self.h2d_data_queue.get_nowait()
+            data_slot = make_data_slot(h2d_data)
+            slot_h3.h2d_data0 = h2d_data_hdr
+            for slot in data_slot:
+                await self.rollver_data_queue.put(slot)
         except QueueEmpty:
-                pass
+            pass
+
         try:
-            slot_h3.h2d_data1 = self.h2d_data_hdr_queue.get_nowait()
-            Counter.increment_rollover_cnt(4)
+            h2d_data_hdr, h2d_data = self.h2d_data_queue.get_nowait()
+            data_slot = make_data_slot(h2d_data)
+            slot_h3.h2d_data1 = h2d_data_hdr
+            for slot in data_slot:
+                await self.rollver_data_queue.put(slot)
         except QueueEmpty:
-                pass
+            pass
+
         try:
-            slot_h3.h2d_data1 = self.h2d_data_hdr_queue.get_nowait()
-            Counter.increment_rollover_cnt(4)
+            h2d_data_hdr, h2d_data = self.h2d_data_queue.get_nowait()
+            data_slot = make_data_slot(h2d_data)
+            slot_h3.h2d_data2 = h2d_data_hdr
+            for slot in data_slot:
+                await self.rollver_data_queue.put(slot)
         except QueueEmpty:
-                pass
+            pass
+
         try:
-            slot_h3.h2d_data1 = self.h2d_data_hdr_queue.get_nowait()
-            Counter.increment_rollover_cnt(4)
+            h2d_data_hdr, h2d_data = self.h2d_data_queue.get_nowait()
+            data_slot = make_data_slot(h2d_data)
+            slot_h3.h2d_data3 = h2d_data_hdr
+            for slot in data_slot:
+                await self.rollver_data_queue.put(slot)
         except QueueEmpty:
-                pass
+            pass
+
+        return slot_h3
 
 class FlitGen:
     def __init__(self, h2d_rsp_queue, h2d_data_queue, flit_queue):
@@ -280,7 +269,7 @@ class FlitGen:
                 x_flag = False
                 h2d_rsp1 = None
                 flit_payload = CXL_PROTOCOL_FLIT_PLD()
-                if Counter.get_rollover_cnt() < 4: # No All-data-flit
+                if rollover_data_queue.qsize() < 4: # No All-data-flit
                     if not self.h2d_rsp_queue.empty():
                         slot0={}
                         h2d_rsp0 = await self.h2d_rsp_queue.get()
@@ -289,104 +278,104 @@ class FlitGen:
                             h2d_rsp1 = await self.h2d_rsp_queue.get()
                         if not self.h2d_data_queue.empty():
                             h2d_data_hdr, h2d_data = await self.h2d_data_queue.get()
-                            data_slot = [h2d_data[i:i+16] for i in range(0, 64, 16)]
-                            Counter.increment_rollover_cnt(4)
+                            data_slot = make_data_slot(h2d_data)
 
                             slot0 = CXL_DNFLIT_SLOT_H1(
                                 rsvd=0,
-                                h2d_rsp0=h2d_rsp0.pack_int(),
-                                h2d_rsp1=h2d_rsp1.pack_int() if h2d_rsp1 is not None else 0,
-                                h2d_data=h2d_data_hdr.pack_int() if h2d_data_hdr is not None else 0
+                                h2d_rsp0=h2d_rsp0.pack(),
+                                h2d_rsp1=h2d_rsp1.pack() if h2d_rsp1 is not None else 0,
+                                h2d_data=h2d_data_hdr.pack() if h2d_data_hdr is not None else 0
                             )
-                            packed_slot0 = slot0.pack_int()
+                            packed_slot0 = slot0.pack()
                             flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H1.value, SLOT_T_G.G0.value, SLOT_T_G.G0.value, SLOT_T_G.G0.value,
                                     packed_slot0, 
-                                    data_slot[0], 
+                                    data_slot[0],
                                     data_slot[1],
                                     data_slot[2]
                                 )
                             await rollover_data_queue.put(data_slot[3])
-                            Counter.decrement_rollover_cnt(3)
 
                         else: # No Data Header
                             slot0 = CXL_DNFLIT_SLOT_H1(
                                 rsvd=0,
-                                h2d_rsp0=h2d_rsp0.pack_int(),
-                                h2d_rsp1=h2d_rsp1.pack_int() if h2d_rsp1 is not None else 0,
+                                h2d_rsp0=h2d_rsp0.pack(),
+                                h2d_rsp1=h2d_rsp1.pack() if h2d_rsp1 is not None else 0,
                                 h2d_data=0
                             )
-                            packed_slot0 = slot0.pack_int()
-                            if Counter.get_rollover_cnt() == 0:
+                            if rollover_data_queue.qsize() == 0:
                                 slot1 = await ConstructG1(self.h2d_rsp_queue).construct_g1()
                                 flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H1.value, SLOT_T_G.G1.value, SLOT_T_G.G1.value, SLOT_T_G.G1.value,
-                                    packed_slot0, 
-                                    slot1.pack_int(), 
+                                    slot0.pack(),
+                                    slot1.pack(), 
                                     0, 
                                     0
                                 )
-                            elif Counter.get_rollover_cnt() == 1:
+                            elif rollover_data_queue.qsize() == 1:
                                 slot2 = ConstructG1(self.h2d_rsp_queue).construct_g1()
                                 rollover_data0 = await rollover_data_queue.get()
                                 flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H1.value, SLOT_T_G.G0.value, SLOT_T_G.G1.value, SLOT_T_G.G1.value,
-                                    packed_slot0,
+                                    slot0.pack(),
                                     rollover_data0,
-                                    slot2.pack_int(), 
+                                    slot2.pack(), 
                                     bytes(16)
                                 )
-                            elif Counter.get_rollover_cnt() == 2:
+                            elif rollover_data_queue.qsize() == 2:
                                 slot3 = ConstructG1(self.h2d_rsp_queue).construct_g1()
                                 rollover_data0 = await rollover_data_queue.get()
                                 rollover_data1 = await rollover_data_queue.get()
                                 flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H1.value, SLOT_T_G.G0.value, SLOT_T_G.G1.value, SLOT_T_G.G1.value,
-                                    packed_slot0,
+                                    slot0.pack(),
                                     rollover_data0, 
                                     rollover_data1, 
-                                    slot3.pack_int()
+                                    slot3.pack()
                                 )
-                            elif Counter.get_rollover_cnt() == 3:
+                            elif rollover_data_queue.qsize() == 3:
                                 rollover_data0 = await rollover_data_queue.get()
                                 rollover_data1 = await rollover_data_queue.get()
                                 rollover_data2 = await rollover_data_queue.get()
                                 flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H1.value, SLOT_T_G.G0.value, SLOT_T_G.G1.value, SLOT_T_G.G1.value,
-                                    packed_slot0, 
+                                    slot0.pack(),
                                     rollover_data0, 
                                     rollover_data1, 
                                     rollover_data2
                                 )
                     else: # No Rsp
                         if self.h2d_data_queue.qsize() > 1:
-                            slot0 = CXL_DNFLIT_SLOT_H3(self.h2d_data_queue)
-                            packed_slot0=slot0.pack()
+                            slot0 = CXL_DNFLIT_SLOT_H3.construct_h3(self.h2d_data_queue, rollover_data_queue)
+                            rollover_data0 = await rollover_data_queue.get()
+                            rollover_data1 = await rollover_data_queue.get()
+                            rollover_data2 = await rollover_data_queue.get()
+
                             flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H3.value, SLOT_T_G.G0.value, SLOT_T_G.G1.value, SLOT_T_G.G1.value,
-                                    packed_slot0, 1, 1, 1,
+                                    slot0.pack(), 
+                                    rollover_data0,
+                                    rollover_data1,
+                                    rollover_data2
                                 )
-                            Counter.decrement_rollover_cnt(3)
                         else: # 1 data hdr
                             h2d_data_hdr, h2d_data = await self.h2d_data_queue.get()
-                            data = int.from_bytes(h2d_data, 'little')
-                            data_slot = make_data_slot(data)
+                            data_slot = make_data_slot(h2d_data)
 
                             slot0 = CXL_DNFLIT_SLOT_H1(
                                 rsvd=0,
                                 h2d_rsp0=0,
                                 h2d_rsp1=0,
-                                h2d_data=h2d_data_hdr.pack_int() if h2d_data_hdr is not None else 0
+                                h2d_data=h2d_data_hdr.pack() if h2d_data_hdr is not None else 0
                             )
                             flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H1.value, SLOT_T_G.G0.value, SLOT_T_G.G0.value, SLOT_T_G.G0.value,
-                                    slot0.pack_int(),
+                                    slot0.pack(),
                                     (data_slot[0]),
                                     (data_slot[1]),
                                     (data_slot[2])
                                 )
                             await rollover_data_queue.put(data_slot[3])
-                            Counter.increment_rollover_cnt(1)
                 else: #All Data Flit
                     rollover_data0 = await rollover_data_queue.get()
                     rollover_data1 = await rollover_data_queue.get()
@@ -398,10 +387,9 @@ class FlitGen:
                         rollover_data2,
                         rollover_data3
                     )
-                    Counter.decrement_rollover_cnt(4)
                 
             else: # No rsp, data hdr
-                if (Counter.get_rollover_cnt()) > 3: #All Data Flit
+                if (rollover_data_queue.qsize() > 3): #All Data Flit
                     rollover_data0 = await rollover_data_queue.get()
                     rollover_data1 = await rollover_data_queue.get()
                     rollover_data2 = await rollover_data_queue.get()
@@ -412,8 +400,7 @@ class FlitGen:
                         rollover_data2,
                         rollover_data3
                     )
-                    Counter.decrement_rollover_cnt(4)
-                elif (Counter.get_rollover_cnt() == 3):
+                elif (rollover_data_queue.qsize() == 3):
                     rollover_data0 = await rollover_data_queue.get()
                     rollover_data1 = await rollover_data_queue.get()
                     rollover_data2 = await rollover_data_queue.get()
@@ -424,8 +411,7 @@ class FlitGen:
                                     rollover_data1, 
                                     rollover_data2
                                 )
-                    Counter.decrement_rollover_cnt(3)
-                elif (Counter.get_rollover_cnt() == 2):
+                elif (rollover_data_queue.qsize() == 2):
                     rollover_data0 = await rollover_data_queue.get()
                     rollover_data1 = await rollover_data_queue.get()
                     flit_payload = ConstructFlitPayload.construct_flit_payload(
@@ -435,10 +421,8 @@ class FlitGen:
                                     rollover_data1, 
                                     0 # 128-bit 0
                                 )
-                    Counter.decrement_rollover_cnt(2)
-                elif (Counter.get_rollover_cnt() == 1):
+                elif (rollover_data_queue.qsize() == 1):
                     rollover_data0 = await rollover_data_queue.get()
-                    print(rollover_data0)
                     flit_payload = ConstructFlitPayload.construct_flit_payload(
                                     SLOT_T_H.H1.value, SLOT_T_G.G0.value, SLOT_T_G.G2.value, SLOT_T_G.G2.value,
                                     0, # 96-bit 0
@@ -446,7 +430,6 @@ class FlitGen:
                                     0, # 128-bit 0
                                     0 # 128-bit 0
                                 )
-                    Counter.decrement_rollover_cnt(1)
                 else:
                     if not x_flag:
                         flit_payload = BinaryValue("X" * 512)
